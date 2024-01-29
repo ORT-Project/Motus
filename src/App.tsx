@@ -1,8 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import logo from './logo.svg'
+import './App.css'
 
-function App() {
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+function App () {
   return (
     <div className="App">
       <header className="App-header">
@@ -22,7 +23,7 @@ function App() {
         <p>Ephraim et Mickaël - Développeurs - Test</p>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

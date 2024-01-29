@@ -1,13 +1,14 @@
 {
   "name": "motus",
   "version": "0.1.0",
+  "homepage": "https://ort-project.github.io/Motus",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.76",
+    "@types/node": "^16.18.71",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "react": "^18.2.0",
@@ -17,6 +18,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -39,5 +42,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }

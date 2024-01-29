@@ -19,7 +19,7 @@ function App() {
           Learn React
         </a>
         <p>Ceci est un test de déploiement</p>
-        <p>Ephraim et Mickaël - Développeurs</p>
+        <p>Ephraim et Mickaël - Développeurs - Test</p>
       </header>
     </div>
   );

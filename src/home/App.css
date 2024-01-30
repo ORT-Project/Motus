@@ -1,78 +1,90 @@
 :root {
-  --init-background-color: #faf7f9;
+    --init-background-color: #4AA3A2;
+    --text-color: aquamarine;
 }
 
 body.dark {
-  --init-background-color: #282c34;
+    --init-background-color: #1B4B65;
+    --text-color: whitesmoke;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'poppins', sans-serif;
-  scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    scroll-behavior: smooth;
+    color: var(--text-color);
 }
 
 .alert {
-  position: relative;
-  padding: 0.75rem 1.25rem;
-  margin-bottom: 1rem;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
 }
 
 .alert-danger {
-  color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
 }
 
 .alert-success {
-  color: #155724;
-  background-color: #d4edda;
-  border-color: #c3e6cb;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
 }
 
 .alert-warning {
-  color: #856404;
-  background-color: #fff3cd;
-  border-color: #ffeeba;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
 }
 
 .motus-border {
-  color: white;
-  border-radius: 10px;
-  border-style: solid;
-  border-width: 5px;
-  padding: 15px;
-  font-size: 2em;
+    padding: 5px 15px;
+    background-color: #61dafb;
+    border-radius: 20%;
+    color: white;
+    margin: 5px;
+}
+
+.motus-border p {
+    font-family: "Audiowide", sans-serif;
+    font-size: 2em;
 }
 
 .motus-danger {
-  background-color: indianred;
-  border-color: dimgrey;
+    background-color: indianred;
+    border-color: dimgrey;
 }
 
 .motus-warning {
-  background-color: yellow;
-  border-color: white;
+    background-color: orange;
+    border-color: white;
 }
 
 .motus-success {
-  background-color: greenyellow;
-  border-color: white;
+    background-color: greenyellow;
+    border-color: white;
 }
 
 .section-accueil {
-  width: 100%;
-  min-height: 100vh;
-  padding: 100px 200px;
-  background-color: var(--init-background-color);
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px 200px;
+    background-color: var(--init-background-color);
 }
 
 .content-accueil {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.content-history {
+    display: flex;
+    flex-direction: column;
 }

@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Motus/static/css/main.cc7b3d1d.css",
-    "main.js": "/Motus/static/js/main.93e31fc5.js",
+    "main.css": "/Motus/static/css/main.b618765f.css",
+    "main.js": "/Motus/static/js/main.ab37eb1d.js",
     "index.html": "/Motus/index.html",
-    "main.cc7b3d1d.css.map": "/Motus/static/css/main.cc7b3d1d.css.map",
-    "main.93e31fc5.js.map": "/Motus/static/js/main.93e31fc5.js.map"
+    "main.b618765f.css.map": "/Motus/static/css/main.b618765f.css.map",
+    "main.ab37eb1d.js.map": "/Motus/static/js/main.ab37eb1d.js.map"
   },
   "entrypoints": [
-    "static/css/main.cc7b3d1d.css",
-    "static/js/main.93e31fc5.js"
+    "static/css/main.b618765f.css",
+    "static/js/main.ab37eb1d.js"
   ]
 }

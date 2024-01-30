@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import logo from '../resources/logo.svg'
 import './App.css'
+// import words from 'an-array-of-french-words'
 
 // import ButtonTest from '../components/ButtonTest'
 
 export default function App () {
+  const [word, setWord] = useState('')
+  // const filteredWords = words.filter(
+  //   (word: string) => (/^[a-z]+$/.test(word) &&
+  //           word.length > 4 &&
+  //           word.length <= 5)
+  // )
+  setWord('test')
+
+  // console.log(filteredWords)
+
   return (
         <div className="section-accueil">
             <h1>Jeu du motus</h1>
+            <p>{word}</p>
             <p>Vous devez trouver un mot de X caractères en X tentatives.</p>
             <div className="content-history">
                 <input value="test"></input>

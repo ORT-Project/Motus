@@ -8,7 +8,7 @@ export default function App () {
   const minLetters = 4
   const maxLetters = 5
   // Choisis tout les mots de la liste qui sont des lettres minuscules sans accents et sans caractères spéciaux
-  const wordList = words.filter((word: string) => (
+  const wordList = (words as any[]).filter((word: string) => (
     /^[a-z]+$/.test(word) &&
             word.length > minLetters &&
             word.length <= maxLetters

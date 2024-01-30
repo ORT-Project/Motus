@@ -11,6 +11,10 @@ const router = createBrowserRouter([
   {
     path: '/Motus',
     element: <App/>
+  },
+  {
+    path: '/game',
+    element: <App/>
   }
 ])
 

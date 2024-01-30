@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+:root {
+  --init-background-color: #faf7f9;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body.dark {
+  --init-background-color: #282c34;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.motus-border {
   color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 5px;
+  padding: 15px;
+  font-size: 2em;
 }
 
-.App-link {
-  color: #61dafb;
+.motus-danger {
+  background-color: indianred;
+  border-color: dimgrey;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.motus-warning {
+  background-color: yellow;
+  border-color: white;
+}
+
+.motus-success {
+  background-color: greenyellow;
+  border-color: white;
+}
+
+.section-accueil {
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px 200px;
+  background-color: var(--init-background-color);
+}
+
+.content-accueil {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }

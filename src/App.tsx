@@ -5,24 +5,22 @@ import './App.css'
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>Ceci est un test de déploiement</p>
-        <p>Ephraim et Mickaël - Développeurs - Test</p>
-      </header>
-    </div>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.tsx</code> and save to reload.
+          </p>
+          <a
+              className="App-link"
+              href="https://reactjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
+      </div>
   )
 }
 

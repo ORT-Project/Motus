@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import DictionaryRuleProcessor from '../components/DictionaryRuleProcessor'
 import WordHistory from '../components/WordHistory'
 
 export default function Motus () {
 	// affichage (render)
+	const [answer, setAnswer] = useState('')
 	return (
 		<div className="section-accueil">
 			<h1>Jeu du motus</h1>
 			<div>
-				Réponse : <DictionaryRuleProcessor></DictionaryRuleProcessor>
+                Réponse : <DictionaryRuleProcessor
+					setAnswer={setAnswer} answer={answer}
+				/>
 			</div>
 			<p>Vous devez trouver un mot de X caractères en X tentatives.</p>
 			<div className="content-history">
 				<div className="content-accueil">
-					<WordHistory></WordHistory>
+					<WordHistory
+						answer={answer}
+					/>
 				</div>
 				<div className="content-accueil">
 					<div className="motus-border motus-warning">

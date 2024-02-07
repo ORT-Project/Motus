@@ -1,7 +1,7 @@
-import React from 'react' // , { useState }
+import React, { type FC, useEffect } from 'react' // , { useState }
 import words from 'an-array-of-french-words'
 
-export default function DictionaryRuleProcessor () {
+const DictionaryRuleProcessor: FC<{ answer: string, setAnswer: (value: string) => void }> = ({ setAnswer, answer }) => {
 	// state (état, données)
 	// const [minLetters, setMinLetters] = useState(5)
 	// const [maxLetters, setMaxLetters] = useState(10)
@@ -11,12 +11,18 @@ export default function DictionaryRuleProcessor () {
 	// comportements
 	const wordList: string[] = (words as any[]).filter((word: string) => (
 		/^[a-z]+$/.test(word) &&
-		word.length > minLetters &&
-		word.length <= maxLetters)
+        word.length > minLetters &&
+        word.length <= maxLetters)
 	) as string[]
 
-	const randInt = Math.floor(Math.random() * wordList.length)
-	const answer = wordList[randInt].toUpperCase()
+	const generateWord = () => {
+		const randInt = Math.floor(Math.random() * wordList.length)
+		setAnswer(wordList[randInt].toUpperCase())
+	}
+
+	useEffect(() => {
+		generateWord()
+	}, [])
 
 	// affichage (render)
 	return (
@@ -25,3 +31,5 @@ export default function DictionaryRuleProcessor () {
 		</div>
 	)
 }
+
+export default DictionaryRuleProcessor

@@ -41,12 +41,6 @@ p {
     background-color: #0056b3;
 }
 
-.difficulty-container {
-    display: flex;
-    justify-content: center;
-    align-content: space-between;
-}
-
 .difficulty-banner {
     padding: 200px 140px;
     max-width: 200px;

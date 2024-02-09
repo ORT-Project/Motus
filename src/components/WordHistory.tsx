@@ -1,6 +1,6 @@
-import React, { type FC, useState } from 'react'
+import React, { useState } from 'react'
 
-const WordHistory: FC<{ answer: string }> = ({ answer }) => {
+export default function WordHistory ({ answer }: { answer: string }): JSX.Element {
 	// state
 	const [answers, addAnswer] = useState<string[]>([])
 	const [inputValue, setInputValue] = useState<string>('')
@@ -19,7 +19,7 @@ const WordHistory: FC<{ answer: string }> = ({ answer }) => {
 	return (
 		<div>
 			<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
-				placeholder="Entrez votre réponse"></input>
+				   placeholder="Entrez votre réponse"></input>
 			<button onClick={handleClick}>Envoyer</button>
 			<p>{inputValue}</p>
 			<ul>
@@ -30,4 +30,3 @@ const WordHistory: FC<{ answer: string }> = ({ answer }) => {
 		</div>
 	)
 }
-export default WordHistory

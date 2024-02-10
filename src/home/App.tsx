@@ -1,5 +1,5 @@
 import React from 'react'
-import './Motus.css'
+import './App.css'
 import easy from '../resources/images/black_swan.png'
 import medium from '../resources/images/jingliu.png'
 import hard from '../resources/images/sparkle.png'

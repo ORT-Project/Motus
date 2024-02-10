@@ -41,30 +41,13 @@ p {
     background-color: #0056b3;
 }
 
-.difficulty-banner {
-    padding: 200px 140px;
-    max-width: 200px;
-    max-height: 140px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 20px;
-    margin: 20px;
-}
-
-.difficulty-hard {
-    background-image: url("/public/images/zoe.png");
-}
-
-.difficulty-easy {
-    background-image: url("/public/images/default.jpg");
-}
-
-.difficulty-text {
+.difficulty-container {
     display: flex;
     justify-content: center;
-    align-content: center;
-    min-height: 30px;
-    min-width: 140px;
-    background-color: #721c24;
-    color: white;
+    width: 100%;
+}
+
+.difficulty-container img {
+    margin: 0 20px;
+    border-radius: 15px;
 }

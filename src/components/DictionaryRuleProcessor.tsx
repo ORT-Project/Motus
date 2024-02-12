@@ -1,7 +1,9 @@
-import React, { type FC, useEffect } from 'react' // , { useState }
+import React, { useEffect } from 'react' // , { useState }
 import words from 'an-array-of-french-words'
 
-const DictionaryRuleProcessor: FC<{ answer: string, setAnswer: (value: string) => void }> = ({ setAnswer, answer }) => {
+export type DictionaryRuleProcessorPros = { answer: string, setAnswer: (answer: string) => void }
+
+export default function DictionaryRuleProcessor ({ setAnswer, answer }: DictionaryRuleProcessorPros) {
 	// state (état, données)
 	// const [minLetters, setMinLetters] = useState(5)
 	// const [maxLetters, setMaxLetters] = useState(10)
@@ -31,5 +33,3 @@ const DictionaryRuleProcessor: FC<{ answer: string, setAnswer: (value: string) =
 		</div>
 	)
 }
-
-export default DictionaryRuleProcessor

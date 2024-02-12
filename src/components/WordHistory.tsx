@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-export default function WordHistory ({ answer }: { answer: string }): JSX.Element {
+export type WordHistoryProps = { answer: string }
+export default function WordHistory ({ answer }: WordHistoryProps) {
 	// state
 	const [answers, addAnswer] = useState<string[]>([])
 	const [inputValue, setInputValue] = useState<string>('')
@@ -19,7 +20,7 @@ export default function WordHistory ({ answer }: { answer: string }): JSX.Elemen
 	return (
 		<div>
 			<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
-				   placeholder="Entrez votre réponse"></input>
+				placeholder="Entrez votre réponse"></input>
 			<button onClick={handleClick}>Envoyer</button>
 			<p>{inputValue}</p>
 			<ul>

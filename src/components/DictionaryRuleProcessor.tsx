@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react' // , { useState }
 import words from 'an-array-of-french-words'
 
-export type DictionaryRuleProcessorPros = { answer: string, setAnswer: (answer: string) => void }
+export type DictionaryRuleProcessorPros = {
+	answer: string
+	setAnswer: (answer: string) => void
+}
 
 export default function DictionaryRuleProcessor ({ setAnswer, answer }: DictionaryRuleProcessorPros) {
 	// state (état, données)

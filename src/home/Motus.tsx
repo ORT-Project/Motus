@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import './Motus.css'
 import DictionaryRuleProcessor from '../components/DictionaryRuleProcessor'
 import WordHistory from '../components/WordHistory'
+import InputAnswer from '../components/InputAnswer'
 
 export default function Motus () {
 	// affichage (render)
 	const [answer, setAnswer] = useState('')
+	const [historyInput, setHistoryInput] = useState<string[]>([])
+	const [inputValue, setInputValue] = useState<string>('')
 
 	return (
 		<section>
@@ -21,11 +24,19 @@ export default function Motus () {
 			</div>
 			<div className="column-middle">
 				<div className="input">
-
+					<InputAnswer
+						answer={answer}
+						setHistoryInput={setHistoryInput}
+						historyInput={historyInput}
+						inputValue={inputValue}
+						setInputValue={setInputValue}
+					/>
 				</div>
 				<div className="history">
 					<WordHistory
 						answer={answer}
+						historyInput={historyInput}
+						inputValue={inputValue}
 					/>
 				</div>
 				<div className="retry">

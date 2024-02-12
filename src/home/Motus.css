@@ -55,7 +55,6 @@ section {
 .input {
     background-color: #9bd5f8;
     border-radius: 20px;
-    padding: 30px;
     height: 80px;
     width: 90%;
 }
@@ -76,4 +75,14 @@ section {
     padding: 30px;
     height: 100px;
     width: 90%;
+}
+
+.container-input {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.container-input input {
+    color: red;
 }

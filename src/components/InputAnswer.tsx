@@ -20,15 +20,27 @@ export default function InputAnswer ({
 		setInputValue(event.target.value)
 	}
 
-	const handleClick = () => {
-		setHistoryInput([...historyInput, inputValue])
-		setInputValue('')
+	function verifyInput (answer: string) {
+		if (inputValue.length !== answer.length) return false // si pas la bonne longueur
+		if (!/^[a-zA-Z]*$/.test(inputValue)) return false // si pas que des lettres
+		return true
 	}
 
+	const handlePressEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+		if (event.key === 'Enter') {
+			handleClick()
+		}
+	}
+	const handleClick = () => {
+		if (verifyInput(answer)) {
+			setHistoryInput([...historyInput, inputValue.toUpperCase()])
+			setInputValue('')
+		}
+	}
 	return (
 		<div className="container-input">
 			<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
-				placeholder="Entrez votre réponse"></input>
+				placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
 			<button onClick={handleClick}>Envoyer</button>
 			<p>{nbInputStringLeft}</p>
 		</div>

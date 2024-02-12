@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Motus.css'
 import DictionaryRuleProcessor from '../components/DictionaryRuleProcessor'
 import WordHistory from '../components/WordHistory'
 
 export default function Motus () {
 	// affichage (render)
+	const [answer, setAnswer] = useState('')
+
 	return (
 		<section>
 			<div className="column-left">
 				<div className="color-code">
-					<p>Réponse : </p> <DictionaryRuleProcessor></DictionaryRuleProcessor>
+					<p>Réponse : </p> <DictionaryRuleProcessor
+						setAnswer={setAnswer} answer={answer}
+					/>
 				</div>
 				<div>
 
@@ -20,7 +24,9 @@ export default function Motus () {
 
 				</div>
 				<div className="history">
-					<WordHistory></WordHistory>
+					<WordHistory
+						answer={answer}
+					/>
 				</div>
 				<div className="retry">
 

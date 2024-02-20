@@ -86,3 +86,26 @@ section {
 .container-input input {
     color: red;
 }
+
+.container-history {
+    display: flex;
+}
+
+.container-history p {
+    margin-right: 5px;
+    padding: 10px;
+}
+
+.green {
+    background: green;
+}
+
+.red {
+    background: red;
+}
+
+.orange {
+    background: orange;
+}
+
+

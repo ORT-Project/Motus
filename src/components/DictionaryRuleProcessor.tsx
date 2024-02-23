@@ -44,7 +44,6 @@ export default function DictionaryRuleProcessor ({
 					<li>🟩 : La lettre est bien placée</li>
 					<li>🟧 : La lettre est présente mais mal placée</li>
 					<li>🟥 : La lettre n&rsquo;est pas présente dans le mot</li>
-					<li>➖ : Le mot n&rsquo;existe pas</li>
 				</ul>
 			</div>
 		)

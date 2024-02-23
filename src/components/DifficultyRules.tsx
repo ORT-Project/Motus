@@ -24,13 +24,10 @@ export default function DifficultyRules ({ answer }: DifficultyRulesProps) {
 	}
 
 	const handleClick = () => {
-		if (locationState.difficulty === 'Impossible') {
-			const result = compterSyllabesEtVoyelles(answer)
-			setConsonants(result.consonants)
-			setVowels(result.vowels)
-		} else {
-			// Implémenter les indices pour les autres difficultés
-		}
+		const result = compterSyllabesEtVoyelles(answer)
+		setConsonants(result.consonants)
+		setVowels(result.vowels)
+		locationState.tip = locationState.tip - 1
 	}
 
 	if (consonants === 0 && vowels === 0) {

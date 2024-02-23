@@ -28,7 +28,7 @@ export default function App () {
 				<img onClick={() => {
 					handleRequest({
 						difficulty: 'Facile',
-						tip: 2,
+						tip: 1,
 						attempts: 10,
 						color: true
 					})

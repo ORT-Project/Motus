@@ -79,7 +79,7 @@ export default function InputAnswer ({
 						   placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
 					<button onClick={handleClick}>Envoyer</button>
 					<p>{nbInputStringLeft}</p>
-          <p>{textErrorInput}</p>
+					<p>{textErrorInput}</p>
 				</div>
 			</div>
 		)

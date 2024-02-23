@@ -3,6 +3,7 @@ import './Motus.css'
 import DictionaryRuleProcessor from '../components/DictionaryRuleProcessor'
 import WordHistory from '../components/WordHistory'
 import InputAnswer from '../components/InputAnswer'
+import DifficultyRules from '../components/DifficultyRules'
 
 export default function Motus () {
 	// affichage (render)
@@ -44,9 +45,7 @@ export default function Motus () {
 				</div>
 			</div>
 			<div className="column-right">
-				<div className="rules">
-
-				</div>
+				<DifficultyRules/>
 			</div>
 		</section>
 	)

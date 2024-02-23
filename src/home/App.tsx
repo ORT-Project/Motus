@@ -4,39 +4,59 @@ import easy from '../resources/images/black_swan.png'
 import medium from '../resources/images/jingliu.png'
 import hard from '../resources/images/sparkle.png'
 import impossible from '../resources/images/ruan_mei.png'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function App () {
-	const handleEasy = () => {
-		alert('easy')
+	const navigate = useNavigate()
+
+	interface FormData {
+		difficulty: string
+		tip: number
+		attempts: number
+		color: boolean
 	}
-	const handleMedium = () => {
-		alert('medium')
+
+	const handleRequest = (formData: FormData) => {
+		navigate('/motus/game', { state: formData })
 	}
-	const handleHard = () => {
-		alert('hard')
-	}
-	const handleImpossible = () => {
-		alert('impossible')
-	}
-	// affichage (render)
+
 	return (
 		<div className="container">
 			<h1>Bienvenue sur Motus</h1>
 			<p>Le jeu de mots où il faut deviner un mot en un minimum d&rsquo;essais !</p>
 			<div className="difficulty-container">
-				<Link onClick={handleEasy} to="/motus/game">
-					<img src={easy} alt="easy" width="300"/>
-				</Link>
-				<Link onClick={handleMedium} to="/motus/game">
-					<img src={medium} alt="medium" width="300"/>
-				</Link>
-				<Link onClick={handleHard} to="/motus/game">
-					<img src={hard} alt="hard" width="300"/>
-				</Link>
-				<Link onClick={handleImpossible} to="/motus/game">
-					<img src={impossible} alt="impossible" width="300"/>
-				</Link>
+				<img onClick={() => {
+					handleRequest({
+						difficulty: 'Facile',
+						tip: 2,
+						attempts: 10,
+						color: true
+					})
+				}} src={easy} alt="easy" width="300"/>
+				<img onClick={() => {
+					handleRequest({
+						difficulty: 'Moyen',
+						tip: 1,
+						attempts: 7,
+						color: true
+					})
+				}} src={medium} alt="medium" width="300"/>
+				<img onClick={() => {
+					handleRequest({
+						difficulty: 'Difficile',
+						tip: 1,
+						attempts: 5,
+						color: true
+					})
+				}} src={hard} alt="hard" width="300"/>
+				<img onClick={() => {
+					handleRequest({
+						difficulty: 'Impossible',
+						tip: 1,
+						attempts: 3,
+						color: false
+					})
+				}} src={impossible} alt="impossible" width="300"/>
 			</div>
 			<button className="play-button">Jouer</button>
 		</div>

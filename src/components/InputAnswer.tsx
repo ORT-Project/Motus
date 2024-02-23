@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 export type WordHistoryProps = {
@@ -18,6 +18,7 @@ export default function InputAnswer ({
 	const nbInputStringLeft = answer.length - inputValue.length
 	const location = useLocation()
 	const locationState = location.state
+	const [win, setWin] = useState(false)
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value)
@@ -38,13 +39,23 @@ export default function InputAnswer ({
 	const handleClick = () => {
 		if (verifyInput(answer)) {
 			setHistoryInput([...historyInput, inputValue.toUpperCase()])
+			if (inputValue.toUpperCase() === answer.toUpperCase()) {
+				setWin(true)
+				return
+			}
 			setInputValue('')
 			// attempts -1
 			locationState.attempts = locationState.attempts - 1
 		}
 	}
 
-	if (locationState.attempts !== 0) { // attempts !== 0
+	if (win) {
+		return (
+			<div className="win-game">
+				<p>Vous avez <strong>gagné</strong> la partie, félicitations !</p>
+			</div>
+		)
+	} else if (locationState.attempts !== 0) { // attempts !== 0
 		return (
 			<div className="input">
 				<div className="container-input visible-game">

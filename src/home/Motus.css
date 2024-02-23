@@ -114,3 +114,22 @@ p {
 .lose-game strong {
     color: #5e1c21;
 }
+
+.win-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d4edda;
+    border-radius: 20px;
+    border: 3px solid #30363d;
+    height: 80px;
+    width: 90%;
+}
+
+.win-game p {
+    color: #155724;
+}
+
+.win-game strong {
+    color: #1c4d27;
+}

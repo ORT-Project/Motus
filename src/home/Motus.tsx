@@ -24,15 +24,13 @@ export default function Motus () {
 				</div>
 			</div>
 			<div className="column-middle">
-				<div className="input">
-					<InputAnswer
-						answer={answer}
-						setHistoryInput={setHistoryInput}
-						historyInput={historyInput}
-						inputValue={inputValue}
-						setInputValue={setInputValue}
-					/>
-				</div>
+				<InputAnswer
+					answer={answer}
+					setHistoryInput={setHistoryInput}
+					historyInput={historyInput}
+					inputValue={inputValue}
+					setInputValue={setInputValue}
+				/>
 				<div className="history">
 					<WordHistory
 						answer={answer}
@@ -44,9 +42,7 @@ export default function Motus () {
 
 				</div>
 			</div>
-			<div className="column-right">
-				<DifficultyRules/>
-			</div>
+			<DifficultyRules/>
 		</section>
 	)
 }

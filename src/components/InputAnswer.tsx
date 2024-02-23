@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 export type WordHistoryProps = {
 	answer: string
@@ -15,6 +16,8 @@ export default function InputAnswer ({
 	setInputValue
 }: WordHistoryProps) {
 	const nbInputStringLeft = answer.length - inputValue.length
+	const location = useLocation()
+	const locationState = location.state
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value)
@@ -31,18 +34,32 @@ export default function InputAnswer ({
 			handleClick()
 		}
 	}
+
 	const handleClick = () => {
 		if (verifyInput(answer)) {
 			setHistoryInput([...historyInput, inputValue.toUpperCase()])
 			setInputValue('')
+			// attempts -1
+			locationState.attempts = locationState.attempts - 1
 		}
 	}
-	return (
-		<div className="container-input">
-			<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
-				placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
-			<button onClick={handleClick}>Envoyer</button>
-			<p>{nbInputStringLeft}</p>
-		</div>
-	)
+
+	if (locationState.attempts !== 0) { // attempts !== 0
+		return (
+			<div className="input">
+				<div className="container-input visible-game">
+					<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
+						   placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
+					<button onClick={handleClick}>Envoyer</button>
+					<p>{nbInputStringLeft}</p>
+				</div>
+			</div>
+		)
+	} else {
+		return (
+			<div className="lose-game">
+				<p>Vous avez <strong>perdu</strong> la partie, rejouer ?</p>
+			</div>
+		)
+	}
 }

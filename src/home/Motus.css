@@ -31,7 +31,7 @@ section {
 .column-right {
     width: 25%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
 
 .color-code {
@@ -52,7 +52,7 @@ p {
     background-color: #0d1117;
     border-radius: 20px;
     border: 3px solid #30363d;
-    margin: 0 20px;
+    margin: 0 20px 10px 20px;
     padding: 30px;
     height: 30%;
     width: 80%;
@@ -94,4 +94,23 @@ p {
 
 .container-input input {
     color: red;
+}
+
+.lose-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8d7da;
+    border-radius: 20px;
+    border: 3px solid #30363d;
+    height: 80px;
+    width: 90%;
+}
+
+.lose-game p {
+    color: #721c24;
+}
+
+.lose-game strong {
+    color: #5e1c21;
 }

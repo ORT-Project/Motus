@@ -96,6 +96,27 @@ p {
     color: red;
 }
 
+.container-history {
+    display: flex;
+}
+
+.container-history p {
+    margin-right: 5px;
+    padding: 10px;
+}
+
+.green {
+    background: green;
+}
+
+.red {
+    background: red;
+}
+
+.orange {
+    background: orange;
+}
+
 .lose-game {
     display: flex;
     justify-content: center;

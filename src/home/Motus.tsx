@@ -3,6 +3,7 @@ import './Motus.css'
 import DictionaryRuleProcessor from '../components/DictionaryRuleProcessor'
 import WordHistory from '../components/WordHistory'
 import InputAnswer from '../components/InputAnswer'
+import DifficultyRules from '../components/DifficultyRules'
 
 export default function Motus () {
 	// affichage (render)
@@ -13,25 +14,21 @@ export default function Motus () {
 	return (
 		<section>
 			<div className="column-left">
-				<div className="color-code">
-					<p>Réponse : </p> <DictionaryRuleProcessor
-						setAnswer={setAnswer} answer={answer}
-					/>
-				</div>
+				<DictionaryRuleProcessor
+					setAnswer={setAnswer} answer={answer}
+				/>
 				<div>
 
 				</div>
 			</div>
 			<div className="column-middle">
-				<div className="input">
-					<InputAnswer
-						answer={answer}
-						setHistoryInput={setHistoryInput}
-						historyInput={historyInput}
-						inputValue={inputValue}
-						setInputValue={setInputValue}
-					/>
-				</div>
+				<InputAnswer
+					answer={answer}
+					setHistoryInput={setHistoryInput}
+					historyInput={historyInput}
+					inputValue={inputValue}
+					setInputValue={setInputValue}
+				/>
 				<div className="history">
 					<WordHistory
 						answer={answer}
@@ -43,11 +40,7 @@ export default function Motus () {
 
 				</div>
 			</div>
-			<div className="column-right">
-				<div className="rules">
-
-				</div>
-			</div>
+			<DifficultyRules answer={answer}/>
 		</section>
 	)
 }

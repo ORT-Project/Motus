@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import words from 'an-array-of-french-words'
+import { useLocation } from 'react-router-dom'
 
 export type WordHistoryProps = {
 	answer: string
@@ -17,6 +18,9 @@ export default function InputAnswer ({
 }: WordHistoryProps) {
 	const [textErrorInput, setTextErrorInput] = useState<string>('')
 	const nbInputStringLeft = answer.length - inputValue.length
+	const location = useLocation()
+	const locationState = location.state
+	const [win, setWin] = useState(false)
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value)
@@ -47,19 +51,44 @@ export default function InputAnswer ({
 			handleClick()
 		}
 	}
+
 	const handleClick = () => {
-		if (verifyInput(answer)) { // si l'input est correct
-			setHistoryInput([...historyInput, inputValue.toUpperCase()]) // ajout de l'input dans l'historique
-			setInputValue('') // reset de l'input
+		if (verifyInput(answer)) {
+			setHistoryInput([...historyInput, inputValue.toUpperCase()])
+			if (inputValue.toUpperCase() === answer.toUpperCase()) {
+				setWin(true)
+				return
+			}
+			setInputValue('')
+			// attempts -1
+			locationState.attempts = locationState.attempts - 1
 		}
 	}
-	return (
-		<div className="container-input">
-			<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
-				placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
-			<button onClick={handleClick}>Envoyer</button>
-			<p>{nbInputStringLeft}</p>
-			<p>{textErrorInput}</p>
-		</div>
-	)
+
+	if (win) {
+		return (
+			<div className="win-game">
+				<p>Vous avez <strong>gagné</strong> la partie, félicitations !</p>
+			</div>
+		)
+	} else if (locationState.attempts !== 0) { // attempts !== 0
+		return (
+			<div className="input">
+				<div className="container-input visible-game">
+					<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
+						   placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
+					<button onClick={handleClick}>Envoyer</button>
+					<p>{nbInputStringLeft}</p>
+          <p>{textErrorInput}</p>
+				</div>
+			</div>
+		)
+	} else {
+		return (
+			<div className="lose-game">
+				<p>Vous avez <strong>perdu</strong> la partie, rejouer ? La réponse
+					était <strong>{answer.toLowerCase()}</strong>.</p>
+			</div>
+		)
+	}
 }

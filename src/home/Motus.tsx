@@ -4,12 +4,17 @@ import DictionaryRuleProcessor from '../components/DictionaryRuleProcessor'
 import WordHistory from '../components/WordHistory'
 import InputAnswer from '../components/InputAnswer'
 import DifficultyRules from '../components/DifficultyRules'
+import { Link } from 'react-router-dom'
 
 export default function Motus () {
 	// affichage (render)
 	const [answer, setAnswer] = useState('')
 	const [historyInput, setHistoryInput] = useState<string[]>([])
 	const [inputValue, setInputValue] = useState<string>('')
+
+	const reloadPage = () => {
+		window.location.reload()
+	}
 
 	return (
 		<section>
@@ -37,7 +42,8 @@ export default function Motus () {
 					/>
 				</div>
 				<div className="retry">
-
+					<Link to='/' className='button-style'>Page d&rsquo;accueil</Link>
+					<button onClick={reloadPage} className="button-style">Recommencer</button>
 				</div>
 			</div>
 			<DifficultyRules answer={answer}/>

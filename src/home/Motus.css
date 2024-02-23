@@ -77,13 +77,16 @@ p {
 }
 
 .retry {
-    background-color: #0d1117;
+    background-image: url('../resources/images/retry-bg.png');
     border-radius: 20px;
     border: 3px solid #30363d;
     margin-top: 40px;
     padding: 30px;
     height: 100px;
     width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container-input {
@@ -153,4 +156,16 @@ p {
 
 .win-game strong {
     color: #1c4d27;
+}
+
+.button-style {
+    color: white;
+    border: 3px solid #30363d;
+    background-color: #0d1117;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 20px;
 }

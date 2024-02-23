@@ -14,11 +14,9 @@ export default function Motus () {
 	return (
 		<section>
 			<div className="column-left">
-				<div className="color-code">
-					<p>Réponse : </p> <DictionaryRuleProcessor
-						setAnswer={setAnswer} answer={answer}
-					/>
-				</div>
+				<DictionaryRuleProcessor
+					setAnswer={setAnswer} answer={answer}
+				/>
 				<div>
 
 				</div>

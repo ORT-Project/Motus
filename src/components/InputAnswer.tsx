@@ -69,7 +69,8 @@ export default function InputAnswer ({
 	} else {
 		return (
 			<div className="lose-game">
-				<p>Vous avez <strong>perdu</strong> la partie, rejouer ?</p>
+				<p>Vous avez <strong>perdu</strong> la partie, rejouer ? La réponse
+					était <strong>{answer.toLowerCase()}</strong>.</p>
 			</div>
 		)
 	}

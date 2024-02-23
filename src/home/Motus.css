@@ -8,7 +8,7 @@
 
 section {
     display: flex;
-    background-image: url("../resources/images/background3.png");
+    background-color: #0d1117;
     background-size: cover;
     min-height: 100vh;
     width: 100%;
@@ -31,37 +31,45 @@ section {
 .column-right {
     width: 25%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
 
 .color-code {
-    background-color: #9bd5f8;
+    background-color: #0d1117;
     border-radius: 20px;
+    border: 3px solid #30363d;
     margin: 0 20px;
     padding: 30px;
     height: 30%;
     width: 80%;
 }
 
+p {
+    color: white;
+}
+
 .rules {
-    background-color: #9bd5f8;
+    background-color: #0d1117;
     border-radius: 20px;
-    margin: 0 20px;
+    border: 3px solid #30363d;
+    margin: 0 20px 10px 20px;
     padding: 30px;
     height: 30%;
     width: 80%;
 }
 
 .input {
-    background-color: #9bd5f8;
+    background-color: #0d1117;
     border-radius: 20px;
+    border: 3px solid #30363d;
     height: 80px;
     width: 90%;
 }
 
 .history {
-    background-color: #9bd5f8;
+    background-color: #0d1117;
     border-radius: 20px;
+    border: 3px solid #30363d;
     margin-top: 40px;
     padding: 30px;
     height: 500px;
@@ -69,8 +77,9 @@ section {
 }
 
 .retry {
-    background-color: #9bd5f8;
+    background-color: #0d1117;
     border-radius: 20px;
+    border: 3px solid #30363d;
     margin-top: 40px;
     padding: 30px;
     height: 100px;
@@ -85,4 +94,42 @@ section {
 
 .container-input input {
     color: red;
+}
+
+.lose-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8d7da;
+    border-radius: 20px;
+    border: 3px solid #30363d;
+    height: 80px;
+    width: 90%;
+}
+
+.lose-game p {
+    color: #721c24;
+}
+
+.lose-game strong {
+    color: #5e1c21;
+}
+
+.win-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d4edda;
+    border-radius: 20px;
+    border: 3px solid #30363d;
+    height: 80px;
+    width: 90%;
+}
+
+.win-game p {
+    color: #155724;
+}
+
+.win-game strong {
+    color: #1c4d27;
 }

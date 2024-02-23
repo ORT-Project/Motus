@@ -40,7 +40,7 @@ export default function Motus () {
 
 				</div>
 			</div>
-			<DifficultyRules/>
+			<DifficultyRules answer={answer}/>
 		</section>
 	)
 }

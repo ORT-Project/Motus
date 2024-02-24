@@ -24,15 +24,20 @@ export default function WordHistory ({
 
 	// render
 	return (
-		<div>
+		<div className="history">
 			<p>{inputValue}</p>
-			{historyInput.map((answer, index) => (
-				<div key={index} className={'container-history'}>
-					{answer.split('').map((letter, indexLetter) => (
-						<p key={indexLetter} className={verifyLetter(letter, indexLetter, wordLetter)}>{letter}</p>
+			<table>
+				<tbody>
+					{historyInput.map((answer, index) => (
+						<tr key={index} className={'container-history'}>
+							{answer.split('').map((letter, indexLetter) => (
+								<td key={indexLetter}
+									className={verifyLetter(letter, indexLetter, wordLetter)}>{letter}</td>
+							))}
+						</tr>
 					))}
-				</div>
-			))}
+				</tbody>
+			</table>
 		</div>
 	)
 }

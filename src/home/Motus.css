@@ -59,7 +59,7 @@ p {
 }
 
 .input {
-    background-color: #0d1117;
+    background-image: url('../resources/images/retry-bg.png');
     border-radius: 20px;
     border: 3px solid #30363d;
     height: 80px;
@@ -67,13 +67,15 @@ p {
 }
 
 .history {
-    background-color: #0d1117;
+    background-image: url('../resources/images/fu_xuan.jpg');
     border-radius: 20px;
     border: 3px solid #30363d;
     margin-top: 40px;
     padding: 30px;
-    height: 500px;
+    min-height: 500px;
     width: 90%;
+    display: flex;
+    justify-content: center;
 }
 
 .retry {
@@ -97,15 +99,6 @@ p {
 
 .container-input input {
     color: red;
-}
-
-.container-history {
-    display: flex;
-}
-
-.container-history p {
-    margin-right: 5px;
-    padding: 10px;
 }
 
 .green {
@@ -168,4 +161,22 @@ p {
     text-decoration: none;
     font-size: 16px;
     margin: 20px;
+}
+
+td {
+    border: 3px solid #30363d;
+    border-radius: 5px;
+    padding: 20px;
+    max-height: 10px;
+}
+
+tr {
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: auto;
+    min-height: 20px;
+    display: block;
 }

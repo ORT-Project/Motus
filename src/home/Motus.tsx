@@ -34,13 +34,11 @@ export default function Motus () {
 					inputValue={inputValue}
 					setInputValue={setInputValue}
 				/>
-				<div className="history">
-					<WordHistory
-						answer={answer}
-						historyInput={historyInput}
-						inputValue={inputValue}
-					/>
-				</div>
+				<WordHistory
+					answer={answer}
+					historyInput={historyInput}
+					inputValue={inputValue}
+				/>
 				<div className="retry">
 					<Link to='/' className='button-style'>Page d&rsquo;accueil</Link>
 					<button onClick={reloadPage} className="button-style">Recommencer</button>

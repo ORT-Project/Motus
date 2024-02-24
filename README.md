@@ -1,25 +1,22 @@
-
 # Motus
 
 ## Description
 
 Il s'agit d'un projet développé sous ReactJS.
 
-
 ## Installation
 
 ```shell
-$ npm install 
-$ npm start
+$ npm install --force
 ```
 
 ## Fonctionnalités
-
 
 ## Commandes
 
 ```shell
 $ npm run lint -- --fix
+$ npm start
 ```
 
 ## Développeurs

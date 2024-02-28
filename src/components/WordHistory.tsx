@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 export type WordHistoryProps = {
 	answer: string
@@ -11,21 +12,30 @@ export default function WordHistory ({
 	inputValue
 }: WordHistoryProps) {
 	const wordLetter = answer.split('')
+	const location = useLocation()
+	const locationState = location.state
 
 	const verifyLetter = (letter: string, index: number, wordLetter: string[]) => {
-		if (letter === wordLetter[index]) {
-			return 'green'
-		} else if (answer.includes(letter)) {
-			return 'orange'
+		if (locationState.color) {
+			if (letter === wordLetter[index]) {
+				return 'green'
+			} else if (answer.includes(letter)) {
+				return 'orange'
+			} else {
+				return 'red'
+			}
 		} else {
-			return 'red'
+			if (letter === wordLetter[index]) {
+				return 'green'
+			} else {
+				return 'red'
+			}
 		}
 	}
 
 	// render
 	return (
-		<div className="history">
-			<p>{inputValue}</p>
+		<div>
 			<table>
 				<tbody>
 					{historyInput.map((answer, index) => (

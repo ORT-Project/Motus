@@ -1,64 +1,29 @@
-import React from 'react'
-import './App.css'
-import easy from '../resources/images/black_swan.png'
-import medium from '../resources/images/jingliu.png'
-import hard from '../resources/images/sparkle.png'
-import impossible from '../resources/images/ruan_mei.png'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import './styles/App.css'
+import heartImage from '../resources/images/heart.png'
 
 export default function App () {
-	const navigate = useNavigate()
+	const hearts: string[] = []
+	const [numHearts, setNumHearts] = useState(9)
 
-	interface FormData {
-		difficulty: string
-		tip: number
-		attempts: number
-		color: boolean
+	for (let i = 0; i < numHearts; i++) {
+		hearts.push(heartImage)
 	}
 
-	const handleRequest = (formData: FormData) => {
-		navigate('/motus/game', { state: formData })
+	const handleClick = () => {
+		setNumHearts(numHearts - 1)
 	}
 
 	return (
-		<div className="container">
-			<h1>Bienvenue sur Motus</h1>
-			<p>Le jeu de mots où il faut deviner un mot en un minimum d&rsquo;essais !</p>
-			<div className="difficulty-container">
-				<img onClick={() => {
-					handleRequest({
-						difficulty: 'Facile',
-						tip: 1,
-						attempts: 10,
-						color: true
-					})
-				}} src={easy} alt="easy" width="300"/>
-				<img onClick={() => {
-					handleRequest({
-						difficulty: 'Moyen',
-						tip: 1,
-						attempts: 7,
-						color: true
-					})
-				}} src={medium} alt="medium" width="300"/>
-				<img onClick={() => {
-					handleRequest({
-						difficulty: 'Difficile',
-						tip: 1,
-						attempts: 5,
-						color: true
-					})
-				}} src={hard} alt="hard" width="300"/>
-				<img onClick={() => {
-					handleRequest({
-						difficulty: 'Impossible',
-						tip: 1,
-						attempts: 3,
-						color: false
-					})
-				}} src={impossible} alt="impossible" width="300"/>
+		<div className='container'>
+			<div className='heart-container'>
+				{
+					hearts.map((heart, index) =>
+						<img key={index} src={heart} alt='heart'/>
+					)
+				}
+				<button onClick={handleClick}>Essai</button>
 			</div>
-			<button className="play-button">Jouer</button>
 		</div>
 	)
 }

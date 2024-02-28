@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom/client'
 import App from './home/App'
 import Motus from './home/Motus'
+import Difficulty from './home/Difficulty'
 import {
 	createBrowserRouter,
 	RouterProvider
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
 	{
 		path: '/motus/game',
 		element: <Motus/>
+	},
+	{
+		path: '/motus/difficulty',
+		element: <Difficulty/>
 	}
 ])
 

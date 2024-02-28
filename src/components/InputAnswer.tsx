@@ -73,21 +73,19 @@ export default function InputAnswer ({
 		)
 	} else if (locationState.attempts !== 0) { // attempts !== 0
 		return (
-			<div className="input">
-				<div className="container-input visible-game">
-					<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
-						   placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
-					<button onClick={handleClick}>Envoyer</button>
-					<p>{nbInputStringLeft}</p>
-					<p>{textErrorInput}</p>
-				</div>
+			<div className="container-input visible-game">
+				<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
+					placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
+				<button onClick={handleClick}>Envoyer</button>
+				<p>{nbInputStringLeft}</p>
+				<p>{textErrorInput}</p>
 			</div>
 		)
 	} else {
 		return (
 			<div className="lose-game">
 				<p>Vous avez <strong>perdu</strong> la partie, rejouer ? La réponse
-					était <strong>{answer.toLowerCase()}</strong>.</p>
+                    était <strong>{answer.toLowerCase()}</strong>.</p>
 			</div>
 		)
 	}

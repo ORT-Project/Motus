@@ -1,41 +1,10 @@
-/*
-    Éléments par défaut
- */
-
 section {
     display: flex;
     background-color: var(--init-background-color);
-    background-size: cover;
     min-height: 100vh;
     width: 100%;
     padding-top: 100px;
 }
-
-td {
-    border: 3px solid #30363d;
-    border-radius: 5px;
-    padding: 20px;
-    max-height: 10px;
-}
-
-tr {
-    padding: 10px;
-}
-
-table {
-    border-collapse: collapse;
-    width: auto;
-    min-height: 20px;
-    display: block;
-}
-
-p {
-    color: var(--text-color);
-}
-
-/*
-
- */
 
 .column-left {
     width: 25%;
@@ -58,7 +27,7 @@ p {
 
 .color-code {
     background-color: var(--init-background-color);
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     border: 3px solid var(--init-border-color);
     margin: 0 20px;
     padding: 30px;
@@ -68,7 +37,7 @@ p {
 
 .rules {
     background-color: var(--init-background-color);
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     border: 3px solid var(--init-border-color);
     margin: 0 20px 10px 20px;
     padding: 20px;
@@ -77,7 +46,7 @@ p {
 
 .history {
     background-color: var(--init-background-color);
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     border: 3px solid var(--init-border-color);
     margin-top: 40px;
     padding: 30px;
@@ -89,7 +58,7 @@ p {
 
 .retry {
     background-color: var(--init-background-color);
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     border: 3px solid var(--init-border-color);
     margin-top: 40px;
     padding: 30px;
@@ -102,9 +71,9 @@ p {
 
 .heart-container {
     background-color: var(--init-background-color);
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     border: 3px solid var(--init-border-color);
-    height: 80px;
+    height: 70px;
     width: 90%;
     display: flex;
     flex-direction: row;
@@ -144,7 +113,7 @@ p {
     justify-content: center;
     align-items: center;
     background-color: #f8d7da;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     border: 3px solid var(--init-border-color);
     height: 80px;
     width: 90%;
@@ -163,8 +132,8 @@ p {
     justify-content: center;
     align-items: center;
     background-color: #d4edda;
-    border-radius: 20px;
-    border: 3px solid #30363d;
+    border-radius: var(--border-radius);
+    border: 3px solid var(--init-border-color);
     height: 80px;
     width: 90%;
 }
@@ -187,4 +156,65 @@ p {
     text-decoration: none;
     font-size: 16px;
     margin: 20px;
+}
+
+/*
+    Responsive
+ */
+
+@media only screen and (max-width: 1460px) {
+    /* Styles à appliquer pour les petits écrans */
+    .heart-container img {
+        width: calc(50px + 5 * ((100vw - 1460px) / 150));
+        height: calc(50px + 5 * ((100vw - 1460px) / 150));
+    }
+
+    .heart-container {
+        height: calc(70px + 5 * ((100vw - 1460px) / 150));
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    /* Styles à appliquer pour les petits écrans */
+    .column-right, .column-left {
+        display: none;
+    }
+
+    .column-middle {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    section {
+        justify-content: center;
+        padding-top: 50px;
+    }
+
+    .heart-container img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .heart-container {
+        height: 60px;
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    /* Styles à appliquer pour les petits écrans */
+    .heart-container img {
+        width: calc(40px + 5 * ((100vw - 680px) / 100));
+        height: calc(40px + 5 * ((100vw - 680px) / 100));
+    }
+
+    .heart-container {
+        height: calc(80px + 5 * ((100vw - 1460px) / 150));
+        justify-content: flex-start;
+        width: 90%;
+        border: none;
+    }
 }

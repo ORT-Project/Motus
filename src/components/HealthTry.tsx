@@ -1,14 +1,15 @@
 import React from 'react'
 import '../home/styles/App.css'
 import heartImage from '../resources/images/new_heart.png'
-import { useLocation } from 'react-router-dom'
+import { type LocationDifficulty } from '../entities/LocationDifficulty'
 
-export default function HealthTry () {
+export type HealthTryProps = {
+	locationDifficulty: LocationDifficulty
+}
+export default function HealthTry ({ locationDifficulty }: HealthTryProps) {
 	const hearts: string[] = []
-	const location = useLocation()
-	const locationState = location.state
 
-	for (let i = 0; i < locationState.attempts; i++) {
+	for (let i = 0; i < locationDifficulty.getAttempts(); i++) {
 		hearts.push(heartImage)
 	}
 

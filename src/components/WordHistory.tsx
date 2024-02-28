@@ -1,22 +1,22 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { type LocationDifficulty } from '../entities/LocationDifficulty'
 
 export type WordHistoryProps = {
 	answer: string
 	historyInput: string[]
 	inputValue: string
+	locationDifficulty: LocationDifficulty
 }
 export default function WordHistory ({
 	answer,
 	historyInput,
-	inputValue
+	inputValue,
+	locationDifficulty
 }: WordHistoryProps) {
 	const wordLetter = answer.split('')
-	const location = useLocation()
-	const locationState = location.state
 
 	const verifyLetter = (letter: string, index: number, wordLetter: string[]) => {
-		if (locationState.color) {
+		if (locationDifficulty.isColor()) {
 			if (letter === wordLetter[index]) {
 				return 'green'
 			} else if (answer.includes(letter)) {

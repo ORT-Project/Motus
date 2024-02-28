@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import words from 'an-array-of-french-words'
-import { useLocation } from 'react-router-dom'
+import { type LocationDifficulty } from '../entities/LocationDifficulty'
+import { WordsUtils } from '../utils/WordsUtils'
 
 export type WordHistoryProps = {
 	answer: string
@@ -8,18 +8,19 @@ export type WordHistoryProps = {
 	setHistoryInput: (answer: string[]) => void
 	inputValue: string
 	setInputValue: (answer: string) => void
+	locationDifficulty: LocationDifficulty
 }
 export default function InputAnswer ({
 	answer,
 	historyInput,
 	setHistoryInput,
 	inputValue,
-	setInputValue
+	setInputValue,
+	locationDifficulty
 }: WordHistoryProps) {
 	const [textErrorInput, setTextErrorInput] = useState<string>('')
 	const nbInputStringLeft = answer.length - inputValue.length
-	const location = useLocation()
-	const locationState = location.state
+	const wordsUtils = new WordsUtils()
 	const [win, setWin] = useState(false)
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,19 +32,16 @@ export default function InputAnswer ({
 		if (!/^[a-zA-Z]*$/.test(inputValue)) return false // si pas que des lettres
 		if (!errorInput(inputValue.toLowerCase())) return false // si pas dans le dictionnaire
 		if (historyInput.includes(inputValue.toUpperCase())) { // si déjà utilisé
-			setTextErrorInput('Le mot ' + inputValue + ' a déjà été utilisé. Choisissez un autre mot.')
+			setTextErrorInput(`Le mot ${inputValue} a déjà été utilisé. Choisissez un autre mot.`)
 			return false
 		}
 		return true
 	}
 
-	function errorInput (InputValue: string) {
-		if (!(words as any[]).includes(inputValue.toLowerCase())) {
-			setTextErrorInput('Le mot ' + inputValue + ' n\'existe pas dans le dictionnaire. Veuillez réessayer.') // erreur
-			return false
-		}
-		setTextErrorInput('') // reset de l'erreur
-		return true
+	function errorInput (inputValue: string) {
+		const wordExists = wordsUtils.wordDontExist(inputValue)
+		setTextErrorInput(wordExists ? '' : `Le mot ${inputValue} n'existe pas dans le dictionnaire. Veuillez réessayer.`)
+		return wordExists
 	}
 
 	const handlePressEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -60,8 +58,9 @@ export default function InputAnswer ({
 				return
 			}
 			setInputValue('')
-			// attempts -1
-			locationState.attempts = locationState.attempts - 1
+			console.log(locationDifficulty.getAttempts())
+			locationDifficulty.setAttempts(locationDifficulty.getAttempts() - 1)
+			console.log(locationDifficulty.getAttempts())
 		}
 	}
 
@@ -71,11 +70,11 @@ export default function InputAnswer ({
 				<p>Vous avez <strong>gagné</strong> la partie, félicitations !</p>
 			</div>
 		)
-	} else if (locationState.attempts !== 0) { // attempts !== 0
+	} else if (locationDifficulty.getAttempts() !== 0) {
 		return (
 			<div className="container-input visible-game">
 				<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
-					placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
+					   placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
 				<button onClick={handleClick}>Envoyer</button>
 				<p>{nbInputStringLeft}</p>
 				<p>{textErrorInput}</p>
@@ -85,7 +84,7 @@ export default function InputAnswer ({
 		return (
 			<div className="lose-game">
 				<p>Vous avez <strong>perdu</strong> la partie, rejouer ? La réponse
-                    était <strong>{answer.toLowerCase()}</strong>.</p>
+					était <strong>{answer.toLowerCase()}</strong>.</p>
 			</div>
 		)
 	}

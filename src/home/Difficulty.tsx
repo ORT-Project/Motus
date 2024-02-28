@@ -1,4 +1,5 @@
 import React from 'react'
+import './styles/styles.css'
 import './styles/Difficulty.css'
 import easy from '../resources/images/black_swan.png'
 import medium from '../resources/images/jingliu.png'

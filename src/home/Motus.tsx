@@ -5,14 +5,15 @@ import DictionaryRuleProcessor from '../components/DictionaryRuleProcessor'
 import WordHistory from '../components/WordHistory'
 import InputAnswer from '../components/InputAnswer'
 import DifficultyRules from '../components/DifficultyRules'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import HealthTry from '../components/HealthTry'
+import { LocationDifficulty } from '../entities/LocationDifficulty'
 
 export default function Motus () {
-	// affichage (render)
 	const [answer, setAnswer] = useState('')
 	const [historyInput, setHistoryInput] = useState<string[]>([])
 	const [inputValue, setInputValue] = useState<string>('')
+	const locationDifficulty = new LocationDifficulty(useLocation())
 
 	const reloadPage = () => {
 		window.location.reload()
@@ -22,14 +23,14 @@ export default function Motus () {
 		<section>
 			<div className="column-left">
 				<DictionaryRuleProcessor
-					setAnswer={setAnswer} answer={answer}
+					setAnswer={setAnswer} answer={answer} locationDifficulty={locationDifficulty}
 				/>
 				<div>
 
 				</div>
 			</div>
 			<div className="column-middle">
-				<HealthTry></HealthTry>
+				<HealthTry locationDifficulty={locationDifficulty}/>
 				<div className="history">
 					<InputAnswer
 						answer={answer}
@@ -37,11 +38,13 @@ export default function Motus () {
 						historyInput={historyInput}
 						inputValue={inputValue}
 						setInputValue={setInputValue}
+						locationDifficulty={locationDifficulty}
 					/>
 					<WordHistory
 						answer={answer}
 						historyInput={historyInput}
 						inputValue={inputValue}
+						locationDifficulty={locationDifficulty}
 					/>
 				</div>
 				<div className="retry">

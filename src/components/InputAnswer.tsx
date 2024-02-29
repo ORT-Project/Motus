@@ -30,7 +30,7 @@ export default function InputAnswer ({
 	function verifyInput (answer: string) {
 		if (inputValue.length !== answer.length) return false // si pas la bonne longueur
 		if (!/^[a-zA-Z]*$/.test(inputValue)) return false // si pas que des lettres
-		if (!errorInput(inputValue.toLowerCase())) return false // si pas dans le dictionnaire
+		if (!errorInput(inputValue)) return false // si pas dans le dictionnaire
 		if (historyInput.includes(inputValue.toUpperCase())) { // si déjà utilisé
 			setTextErrorInput(`Le mot ${inputValue} a déjà été utilisé. Choisissez un autre mot.`)
 			return false
@@ -38,9 +38,9 @@ export default function InputAnswer ({
 		return true
 	}
 
-	function errorInput (inputValue: string) {
-		const wordExists = wordsUtils.wordDontExist(inputValue)
-		setTextErrorInput(wordExists ? '' : `Le mot ${inputValue} n'existe pas dans le dictionnaire. Veuillez réessayer.`)
+	function errorInput (wordInput: string) {
+		const wordExists = wordsUtils.wordDontExist(wordInput.toLowerCase())
+		setTextErrorInput(wordExists ? '' : `Le mot ${wordInput} n'existe pas dans le dictionnaire. Veuillez réessayer.`)
 		return wordExists
 	}
 
@@ -58,9 +58,7 @@ export default function InputAnswer ({
 				return
 			}
 			setInputValue('')
-			console.log(locationDifficulty.getAttempts())
 			locationDifficulty.setAttempts(locationDifficulty.getAttempts() - 1)
-			console.log(locationDifficulty.getAttempts())
 		}
 	}
 
@@ -74,7 +72,7 @@ export default function InputAnswer ({
 		return (
 			<div className="container-input visible-game">
 				<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
-					   placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
+					placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
 				<button onClick={handleClick}>Envoyer</button>
 				<p>{nbInputStringLeft}</p>
 				<p>{textErrorInput}</p>
@@ -84,7 +82,7 @@ export default function InputAnswer ({
 		return (
 			<div className="lose-game">
 				<p>Vous avez <strong>perdu</strong> la partie, rejouer ? La réponse
-					était <strong>{answer.toLowerCase()}</strong>.</p>
+                    était <strong>{answer.toLowerCase()}</strong>.</p>
 			</div>
 		)
 	}

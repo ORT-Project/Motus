@@ -25,7 +25,7 @@ export default function DifficultyRules ({ answer }: DifficultyRulesProps) {
 		const result = compterSyllabesEtVoyelles(answer)
 		setConsonants(result.consonants)
 		setVowels(result.vowels)
-		// locationDifficulty.setTip(locationDifficulty.getTip() - 1)
+		locationDifficulty.setTip(locationDifficulty.getTip() - 1)
 	}
 
 	if (consonants === 0 && vowels === 0) {

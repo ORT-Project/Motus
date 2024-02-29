@@ -43,6 +43,7 @@ export default function DictionaryRuleProcessor ({
 		return (
 			<div className="color-code">
 				<p>Code couleur du jeu : </p>
+				<li>🟩 : La lettre est bien placée</li>
 				<p>🟧 : La lettre est présente dans le mot</p>
 			</div>
 		)

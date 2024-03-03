@@ -5,7 +5,7 @@ import DictionaryRuleProcessor from '../components/DictionaryRuleProcessor'
 import WordHistory from '../components/WordHistory'
 import InputAnswer from '../components/InputAnswer'
 import DifficultyRules from '../components/DifficultyRules'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, Navigate, useLocation } from 'react-router-dom'
 import HealthTry from '../components/HealthTry'
 import { LocationDifficulty } from '../entities/LocationDifficulty'
 
@@ -13,7 +13,11 @@ export default function Motus () {
 	const [answer, setAnswer] = useState('')
 	const [historyInput, setHistoryInput] = useState<string[]>([])
 	const [inputValue, setInputValue] = useState<string>('')
-	const locationDifficulty = new LocationDifficulty(useLocation())
+	const location = useLocation()
+	if (location.state === undefined || location.state === null) {
+		return <Navigate to="/motus"/> // Rediriger vers la page de base
+	}
+	const locationDifficulty = new LocationDifficulty(location)
 
 	const reloadPage = () => {
 		window.location.reload()

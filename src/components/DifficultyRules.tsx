@@ -9,7 +9,6 @@ export default function DifficultyRules ({ answer }: DifficultyRulesProps) {
 	const [consonants, setConsonants] = useState(0)
 	const [vowels, setVowels] = useState(0)
 	const locationDifficulty = new LocationDifficulty(useLocation())
-	locationDifficulty.checkLocationState(useLocation())
 
 	const compterSyllabesEtVoyelles = (word: string) => {
 		word = word.toLowerCase().trim()

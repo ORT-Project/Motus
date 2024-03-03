@@ -1,5 +1,4 @@
-import { type Location, Navigate } from 'react-router-dom'
-import React from 'react'
+import { type Location } from 'react-router-dom'
 
 export class LocationDifficulty {
 	private _difficulty: string
@@ -14,12 +13,6 @@ export class LocationDifficulty {
 		this._attempts = location.state.attempts
 		this._color = location.state.color
 		this._location = location
-	}
-
-	checkLocationState (location: Location) {
-		if (location.state === undefined || location.state === null) {
-			return <Navigate to="/motus"/> // Rediriger vers la page de base
-		}
 	}
 
 	getDifficulty (): string {

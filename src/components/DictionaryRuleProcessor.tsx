@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react' // , { useState }
 import { WordsUtils } from '../utils/WordsUtils'
 import { type LocationDifficulty } from '../entities/LocationDifficulty'
+import useApi from '../hook/useApi'
+import { type Theme } from '../type'
 
 export type DictionaryRuleProcessorPros = {
 	answer: string
@@ -13,19 +15,23 @@ export default function DictionaryRuleProcessor ({
 	answer,
 	locationDifficulty
 }: DictionaryRuleProcessorPros) {
-	const minLetters = 2
-	const maxLetters = 4
+	const urlParams = 'theme%201'
+	const { data } = useApi<Theme[]>('/themes/byName/' + urlParams)
+
+	const minLetters = 1
+	const maxLetters = 10
 	const wordsUtils = new WordsUtils()
-	const wordList = wordsUtils.getAllWords(minLetters, maxLetters)
+	const wordList = data?.[0].words && wordsUtils.getAllWords(minLetters, maxLetters, data[0].words)
 
 	const generateWord = () => {
+		if (!wordList) return
 		const randInt = Math.floor(Math.random() * wordList.length)
 		setAnswer(wordList[randInt].toUpperCase())
 	}
 
 	useEffect(() => {
 		generateWord()
-	}, [])
+	}, [data])
 
 	// affichage (render)
 	if (locationDifficulty.isColor()) {

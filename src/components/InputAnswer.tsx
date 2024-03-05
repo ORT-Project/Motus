@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { type LocationDifficulty } from '../entities/LocationDifficulty'
 import { WordsUtils } from '../utils/WordsUtils'
+import useApi from '../hook/useApi'
+import type { Word } from '../type'
 
 export type WordHistoryProps = {
 	answer: string
@@ -22,15 +24,16 @@ export default function InputAnswer ({
 	const nbInputStringLeft = answer.length - inputValue.length
 	const wordsUtils = new WordsUtils()
 	const [win, setWin] = useState(false)
+	const { data: wordsDataApi } = useApi<Word[]>('/words/')
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value)
 	}
 
-	function verifyInput (answer: string) {
+	async function verifyInput (answer: string) {
 		if (inputValue.length !== answer.length) return false // si pas la bonne longueur
 		if (!/^[a-zA-Z]*$/.test(inputValue)) return false // si pas que des lettres
-		if (!errorInput(inputValue)) return false // si pas dans le dictionnaire
+		if (!(await errorInput(inputValue))) return false // si pas dans le dictionnaire
 		if (historyInput.includes(inputValue.toUpperCase())) { // si déjà utilisé
 			setTextErrorInput(`Le mot ${inputValue} a déjà été utilisé. Choisissez un autre mot.`)
 			return false
@@ -38,8 +41,8 @@ export default function InputAnswer ({
 		return true
 	}
 
-	function errorInput (wordInput: string) {
-		const wordExists = wordsUtils.wordDontExist(wordInput.toLowerCase())
+	async function errorInput (wordInput: string): Promise<boolean> {
+		const wordExists = await wordsUtils.wordDontExist(wordInput.toLowerCase(), wordsDataApi)
 		setTextErrorInput(wordExists ? '' : `Le mot ${wordInput} n'existe pas dans le dictionnaire. Veuillez réessayer.`)
 		return wordExists
 	}
@@ -50,8 +53,8 @@ export default function InputAnswer ({
 		}
 	}
 
-	const handleClick = () => {
-		if (verifyInput(answer)) {
+	const handleClick = async () => {
+		if (await verifyInput(answer)) {
 			setHistoryInput([...historyInput, inputValue.toUpperCase()])
 			if (inputValue.toUpperCase() === answer.toUpperCase()) {
 				setWin(true)
@@ -73,7 +76,10 @@ export default function InputAnswer ({
 			<div className="container-input visible-game">
 				<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
 					placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
-				<button onClick={handleClick}>Envoyer</button>
+				<button onClick={() => {
+					handleClick()
+				}}>Envoyer
+				</button>
 				<p>{nbInputStringLeft}</p>
 				<p>{textErrorInput}</p>
 			</div>

@@ -25,8 +25,8 @@ body.minecraft {
 
 body.sao {
     --init-background-image: url('../../resources/themes/sword_art_online/background.png');
-    --init-border-color: #653e40;
-    --init-background-color: #a25758;
+    --init-border-color: #363f64;
+    --init-background-color: #7d81a7;
     --text-color: white;
 }
 

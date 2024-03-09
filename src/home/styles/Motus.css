@@ -1,6 +1,8 @@
 section {
     display: flex;
-    background-color: var(--init-background-color);
+    background-image: var(--init-background-image);
+    background-size: cover;
+    background-position: center;
     min-height: 100vh;
     width: 100%;
     padding-top: 100px;

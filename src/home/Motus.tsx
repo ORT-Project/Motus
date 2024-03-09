@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles/Motus.css'
 import './styles/styles.css'
 import DictionaryRuleProcessor from '../components/DictionaryRuleProcessor'
@@ -22,6 +22,14 @@ export default function Motus () {
 	const reloadPage = () => {
 		window.location.reload()
 	}
+
+	useEffect(() => {
+		document.body.classList.add('minecraft') // Récupérer la classe envoyée
+
+		return () => {
+			document.body.classList.remove('minecraft')
+		}
+	}, [])
 
 	return (
 		<section>

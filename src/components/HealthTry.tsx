@@ -1,6 +1,6 @@
 import React from 'react'
 import '../home/styles/App.css'
-import heartImage from '../resources/images/new_heart.png'
+import heartImage from '../resources/images/purple_heart.png'
 import { type LocationDifficulty } from '../entities/LocationDifficulty'
 
 export type HealthTryProps = {

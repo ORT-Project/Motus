@@ -1,22 +1,49 @@
 :root {
     --init-background-color: #DADCE1;
+    --init-background-image: url('../../resources/images/sparkle.png');
     --init-border-color: #30363d;
     --text-color: black;
     --border-radius: 10px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
-    scroll-behavior: smooth;
+    --font-family: 'poppins', sans-serif;
+    --heart-image: url('../../resources/images/red_heart.png')
 }
 
 body.dark {
     --init-background-color: #0d1117;
     --init-border-color: #30363d;
     --text-color: white;
+}
+
+body.minecraft {
+    --font-family: 'Minecraft', sans-serif;
+    --init-background-image: url('../../resources/themes/minecraft/background.png');
+    --init-border-color: #5f7a29;
+    --init-background-color: #85ab3c;
+    --text-color: white;
+    --heart-image: url('../../resources/images/red_heart.png')
+}
+
+body.sao {
+    --init-background-image: url('../../resources/themes/sword_art_online/background.png');
+    --init-border-color: #653e40;
+    --init-background-color: #a25758;
+    --text-color: white;
+}
+
+body.hsr {
+    --init-background-image: url('../../resources/themes/honkai_star_rail/background.jpg');
+    --init-border-color: #653e40;
+    --init-background-color: #a25758;
+    --text-color: white;
+    --heart-image: url('../../resources/images/blue_heart.png')
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    scroll-behavior: smooth;
 }
 
 td {

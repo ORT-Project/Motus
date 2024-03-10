@@ -5,11 +5,14 @@ import easy from '../resources/images/black_swan.png'
 import medium from '../resources/images/jingliu.png'
 import hard from '../resources/images/sparkle.png'
 import impossible from '../resources/images/ruan_mei.png'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 
 export default function Difficulty () {
 	const navigate = useNavigate()
 	const location = useLocation()
+	if (location.state.theme === undefined || location.state.theme === null) {
+		return <Navigate to="/"/> // Rediriger vers la page de base
+	}
 
 	interface FormData {
 		difficulty: string

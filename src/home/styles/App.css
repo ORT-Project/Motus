@@ -50,9 +50,11 @@ button {
     color: white;
     text-decoration: none;
     padding: 10px;
-    background-color: #e58585;
+    background-color: var(--init-border-color);
     border-radius: 10px;
     border-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .items img {

@@ -37,7 +37,7 @@ export default function DifficultyRules ({ answer }: DifficultyRulesProps) {
 					<p>☄️ {locationDifficulty.isColor() ? 'Couleur autorisée' : 'Couleur non autorisée'}</p>
 				</div>
 				<div className="rules">
-					<button onClick={handleClick} className='button-style'>Besoin d&rsquo;un indice ?</button>
+					<button onClick={handleClick}>Besoin d&rsquo;un indice ?</button>
 				</div>
 			</div>
 		)

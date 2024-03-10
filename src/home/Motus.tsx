@@ -5,7 +5,7 @@ import DictionaryRuleProcessor from '../components/DictionaryRuleProcessor'
 import WordHistory from '../components/WordHistory'
 import InputAnswer from '../components/InputAnswer'
 import DifficultyRules from '../components/DifficultyRules'
-import { Link, Navigate, useLocation } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import HealthTry from '../components/HealthTry'
 import { LocationDifficulty } from '../entities/LocationDifficulty'
 
@@ -14,13 +14,18 @@ export default function Motus () {
 	const [historyInput, setHistoryInput] = useState<string[]>([])
 	const [inputValue, setInputValue] = useState<string>('')
 	const location = useLocation()
-	if (location.state === undefined || location.state === null) {
-		return <Navigate to="/motus"/> // Rediriger vers la page de base
+	const navigate = useNavigate()
+	if (location.state.difficulty === undefined || location.state.difficulty === null) {
+		return <Navigate to="/"/> // Rediriger vers la page de base
 	}
 	const locationDifficulty = new LocationDifficulty(location)
 
 	const reloadPage = () => {
 		window.location.reload()
+	}
+
+	const handleNavigate = () => {
+		navigate('/motus', {})
 	}
 
 	const theme: string = location.state.theme
@@ -62,8 +67,8 @@ export default function Motus () {
 					/>
 				</div>
 				<div className="retry">
-					<Link to='/' className='button-style'>Page d&rsquo;accueil</Link>
-					<button onClick={reloadPage} className="button-style">Recommencer</button>
+					<button onClick={handleNavigate}>Page d&rsquo;accueil</button>
+					<button onClick={reloadPage}>Recommencer</button>
 				</div>
 			</div>
 			<DifficultyRules answer={answer}/>

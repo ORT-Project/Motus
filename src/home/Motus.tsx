@@ -23,11 +23,13 @@ export default function Motus () {
 		window.location.reload()
 	}
 
+	const theme: string = location.state.theme
+
 	useEffect(() => {
-		document.body.classList.add('minecraft') // Récupérer la classe envoyée
+		document.body.classList.add(theme) // Récupérer la classe envoyée
 
 		return () => {
-			document.body.classList.remove('minecraft')
+			document.body.classList.remove(theme)
 		}
 	}, [])
 

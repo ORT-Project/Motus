@@ -5,16 +5,18 @@ import easy from '../resources/images/black_swan.png'
 import medium from '../resources/images/jingliu.png'
 import hard from '../resources/images/sparkle.png'
 import impossible from '../resources/images/ruan_mei.png'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export default function Difficulty () {
 	const navigate = useNavigate()
+	const location = useLocation()
 
 	interface FormData {
 		difficulty: string
 		tip: number
 		attempts: number
 		color: boolean
+		theme: string
 	}
 
 	const handleRequest = (formData: FormData) => {
@@ -31,7 +33,8 @@ export default function Difficulty () {
 						difficulty: 'Facile',
 						tip: 1,
 						attempts: 10,
-						color: true
+						color: true,
+						theme: location.state.theme
 					})
 				}} src={easy} alt="easy" width="300"/>
 				<img onClick={() => {
@@ -39,7 +42,8 @@ export default function Difficulty () {
 						difficulty: 'Moyen',
 						tip: 1,
 						attempts: 7,
-						color: true
+						color: true,
+						theme: location.state.theme
 					})
 				}} src={medium} alt="medium" width="300"/>
 				<img onClick={() => {
@@ -47,7 +51,8 @@ export default function Difficulty () {
 						difficulty: 'Difficile',
 						tip: 1,
 						attempts: 5,
-						color: true
+						color: true,
+						theme: location.state.theme
 					})
 				}} src={hard} alt="hard" width="300"/>
 				<img onClick={() => {
@@ -55,7 +60,8 @@ export default function Difficulty () {
 						difficulty: 'Impossible',
 						tip: 1,
 						attempts: 3,
-						color: false
+						color: false,
+						theme: location.state.theme
 					})
 				}} src={impossible} alt="impossible" width="300"/>
 			</div>

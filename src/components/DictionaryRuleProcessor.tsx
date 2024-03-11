@@ -15,14 +15,12 @@ export default function DictionaryRuleProcessor ({
 	answer,
 	locationDifficulty
 }: DictionaryRuleProcessorPros) {
-	const urlParams = 'theme%201'
-	const { data } = useApi<Theme[]>('/themes/byName/' + urlParams)
-
+	const urlParams = 'mc'
+	const { data } = useApi<Theme[]>('/themes/byAlias/' + urlParams)
 	const minLetters = 1
 	const maxLetters = 10
 	const wordsUtils = new WordsUtils()
 	const wordList = data?.[0].words && wordsUtils.getAllWords(minLetters, maxLetters, data[0].words)
-
 	const generateWord = () => {
 		if (!wordList) return
 		const randInt = Math.floor(Math.random() * wordList.length)

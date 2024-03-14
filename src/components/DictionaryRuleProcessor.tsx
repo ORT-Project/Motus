@@ -5,15 +5,15 @@ import useApi from '../hook/useApi'
 import { type Theme } from '../type'
 
 export type DictionaryRuleProcessorPros = {
-	answer: string
 	setAnswer: (answer: string) => void
 	locationDifficulty: LocationDifficulty
+	alias: string
 }
 
 export default function DictionaryRuleProcessor ({
 	setAnswer,
-	answer,
-	locationDifficulty
+	locationDifficulty,
+	alias
 }: DictionaryRuleProcessorPros) {
 	const urlParams = 'mc'
 	const { data } = useApi<Theme[]>('/themes/byAlias/' + urlParams)

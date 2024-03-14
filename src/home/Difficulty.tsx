@@ -20,6 +20,7 @@ export default function Difficulty () {
 		attempts: number
 		color: boolean
 		theme: string
+		alias: string
 	}
 
 	const handleRequest = (formData: FormData) => {
@@ -37,7 +38,8 @@ export default function Difficulty () {
 						tip: 1,
 						attempts: 10,
 						color: true,
-						theme: location.state.theme
+						theme: location.state.theme,
+						alias: location.state.alias
 					})
 				}} src={easy} alt="easy" width="300"/>
 				<img onClick={() => {
@@ -46,7 +48,8 @@ export default function Difficulty () {
 						tip: 1,
 						attempts: 7,
 						color: true,
-						theme: location.state.theme
+						theme: location.state.theme,
+						alias: location.state.alias
 					})
 				}} src={medium} alt="medium" width="300"/>
 				<img onClick={() => {
@@ -55,7 +58,8 @@ export default function Difficulty () {
 						tip: 1,
 						attempts: 5,
 						color: true,
-						theme: location.state.theme
+						theme: location.state.theme,
+						alias: location.state.alias
 					})
 				}} src={hard} alt="hard" width="300"/>
 				<img onClick={() => {
@@ -64,7 +68,8 @@ export default function Difficulty () {
 						tip: 1,
 						attempts: 3,
 						color: false,
-						theme: location.state.theme
+						theme: location.state.theme,
+						alias: location.state.alias
 					})
 				}} src={impossible} alt="impossible" width="300"/>
 			</div>

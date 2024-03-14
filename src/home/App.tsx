@@ -11,6 +11,7 @@ export default function App () {
 
 	interface FormData {
 		theme: string
+		alias: string
 	}
 
 	const handleRequest = (formData: FormData) => {
@@ -30,7 +31,8 @@ export default function App () {
 						<p>Offre des conseils dans le domaine informatique</p>
 						<button onClick={() => {
 							handleRequest({
-								theme: 'minecraft'
+								theme: 'minecraft',
+								alias: 'mc'
 							})
 						}}>Sélectionner
 						</button>
@@ -41,13 +43,14 @@ export default function App () {
 							<h2>Sword Art Online</h2>
 						</div>
 						<p>Ce service d’équipement et logiciel vous offre une solution complète pour répondre à vos
-							besoins
-							informatiques. De la sélection à l’installation, nous vous accompagnons pour garantir
-							un environnement de travail optimal. Nous nous assurerons de vous faire acquérir et de vous
-							installer des équipements matériels et logiciels.</p>
+                            besoins
+                            informatiques. De la sélection à l’installation, nous vous accompagnons pour garantir
+                            un environnement de travail optimal. Nous nous assurerons de vous faire acquérir et de vous
+                            installer des équipements matériels et logiciels.</p>
 						<button onClick={() => {
 							handleRequest({
-								theme: 'sao'
+								theme: 'sao',
+								alias: 'sao'
 							})
 						}}>Sélectionner
 						</button>
@@ -58,13 +61,14 @@ export default function App () {
 							<h2>Honkai Star Rail</h2>
 						</div>
 						<p>Ce service de Solutions de Stockage offre une expertise spécialisée pour répondre à vos
-							besoins
-							de gestion de données. Nous proposons des conseils stratégiques et des solutions
-							personnalisées,
-							allant de la migration vers le cloud à la mise en place de sauvegardes automatiques.</p>
+                            besoins
+                            de gestion de données. Nous proposons des conseils stratégiques et des solutions
+                            personnalisées,
+                            allant de la migration vers le cloud à la mise en place de sauvegardes automatiques.</p>
 						<button onClick={() => {
 							handleRequest({
-								theme: 'hsr'
+								theme: 'hsr',
+								alias: 'hsr'
 							})
 						}}>Sélectionner
 						</button>

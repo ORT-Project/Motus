@@ -42,7 +42,7 @@ export default function Motus () {
 		<section>
 			<div className="column-left">
 				<DictionaryRuleProcessor
-					setAnswer={setAnswer} answer={answer} locationDifficulty={locationDifficulty}
+					setAnswer={setAnswer} locationDifficulty={locationDifficulty} alias={location.state.alias}
 				/>
 				<div>
 

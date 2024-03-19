@@ -1,10 +1,6 @@
 import React from 'react'
 import './styles/styles.css'
 import './styles/Difficulty.css'
-import easy from '../resources/images/black_swan.png'
-import medium from '../resources/images/jingliu.png'
-import hard from '../resources/images/sparkle.png'
-import impossible from '../resources/images/ruan_mei.png'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 
 export default function Difficulty () {
@@ -29,51 +25,68 @@ export default function Difficulty () {
 
 	return (
 		<div className="container">
-			<h1>Bienvenue sur Motus</h1>
-			<p>Le jeu de mots où il faut deviner un mot en un minimum d&rsquo;essais !</p>
-			<div className="difficulty-container">
-				<img onClick={() => {
-					handleRequest({
-						difficulty: 'Facile',
-						tip: 1,
-						attempts: 10,
-						color: true,
-						theme: location.state.theme,
-						alias: location.state.alias
-					})
-				}} src={easy} alt="easy" width="300"/>
-				<img onClick={() => {
-					handleRequest({
-						difficulty: 'Moyen',
-						tip: 1,
-						attempts: 7,
-						color: true,
-						theme: location.state.theme,
-						alias: location.state.alias
-					})
-				}} src={medium} alt="medium" width="300"/>
-				<img onClick={() => {
-					handleRequest({
-						difficulty: 'Difficile',
-						tip: 1,
-						attempts: 5,
-						color: true,
-						theme: location.state.theme,
-						alias: location.state.alias
-					})
-				}} src={hard} alt="hard" width="300"/>
-				<img onClick={() => {
-					handleRequest({
-						difficulty: 'Impossible',
-						tip: 1,
-						attempts: 3,
-						color: false,
-						theme: location.state.theme,
-						alias: location.state.alias
-					})
-				}} src={impossible} alt="impossible" width="300"/>
+			<h1>Sélectionnez votre difficulté</h1>
+			<div className="difficulty">
+				<label htmlFor="easy">
+					<input type="radio" id="easy" name="difficulty" value="easy"/>
+					<img onClick={() => {
+						handleRequest({
+							difficulty: 'Facile',
+							tip: 1,
+							attempts: 10,
+							color: true,
+							theme: location.state.theme,
+							alias: location.state.alias
+						})
+					}} src="https://via.placeholder.com/100?text=Facile" alt="Facile"/>
+				</label>
+				<label htmlFor="medium">
+					<input type="radio" id="medium" name="difficulty" value="medium"/>
+					<img onClick={() => {
+						handleRequest({
+							difficulty: 'Moyen',
+							tip: 1,
+							attempts: 7,
+							color: true,
+							theme: location.state.theme,
+							alias: location.state.alias
+						})
+					}} src="https://via.placeholder.com/100?text=Moyen" alt="Moyen"/>
+				</label>
+				<label htmlFor="hard">
+					<input type="radio" id="hard" name="difficulty" value="hard"/>
+					<img onClick={() => {
+						handleRequest({
+							difficulty: 'Difficile',
+							tip: 1,
+							attempts: 5,
+							color: true,
+							theme: location.state.theme,
+							alias: location.state.alias
+						})
+					}} src="https://via.placeholder.com/100?text=Difficile" alt="Difficile"/>
+				</label>
+				<label htmlFor="impossible">
+					<input type="radio" id="hard" name="difficulty" value="impossible"/>
+					<img onClick={() => {
+						handleRequest({
+							difficulty: 'Impossible',
+							tip: 1,
+							attempts: 3,
+							color: false,
+							theme: location.state.theme,
+							alias: location.state.alias
+						})
+					}} src="https://via.placeholder.com/100?text=Impossible" alt="Impossible"/>
+				</label>
 			</div>
-			<button className="play-button">Jouer</button>
+			<div id="selected-difficulty"></div>
+
+			<div className="background-shapes">
+				<div className="shape shape1"></div>
+				<div className="shape shape2"></div>
+				<div className="shape shape3"></div>
+			</div>
 		</div>
 	)
 }

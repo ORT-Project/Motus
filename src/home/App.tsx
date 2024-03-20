@@ -2,65 +2,45 @@ import React from 'react'
 import './styles/styles.css'
 import './styles/App.css'
 import { useNavigate } from 'react-router-dom'
-import minecraft from '../resources/themes/minecraft/background.png'
-import sao from '../resources/themes/sword_art_online/background.png'
-import hsr from '../resources/themes/honkai_star_rail/background.jpg'
+import useApi from '../hook/useApi'
+import type { Theme } from '../type'
 
 export default function App () {
 	const navigate = useNavigate()
+	const { data } = useApi<Theme[]>('/theme')
+
+	console.log(data)
 
 	interface FormData {
 		theme: string
-		alias: string
+		alias: JSON
 	}
 
 	const handleRequest = (formData: FormData) => {
 		navigate('/motus/difficulty', { state: formData })
 	}
 
+	if (!data) {
+		return <div>Loading...</div>
+	}
+
 	return (
 		<main>
-			<div className="game">
-				<img src={minecraft} alt="Snake"/>
-				<div className="game-content">
-					<h2>Minecraft</h2>
-					<button onClick={() => {
-						handleRequest({
-							theme: 'minecraft',
-							alias: 'mc'
-						})
-					}}>Sélectionner
-					</button>
+			{data.map((theme, index) => (
+				<div className="game" key={theme.id}>
+					<img src={theme.image} alt={theme.name}/>
+					<div className="game-content">
+						<h2>{theme.name}</h2>
+						<button onClick={() => {
+							handleRequest({
+								theme: theme.name,
+								alias: theme.alias
+							})
+						}}>Sélectionner
+						</button>
+					</div>
 				</div>
-			</div>
-
-			<div className="game">
-				<img src={sao} alt="Tetris"/>
-				<div className="game-content">
-					<h2>Sword Art Online</h2>
-					<button onClick={() => {
-						handleRequest({
-							theme: 'sao',
-							alias: 'sao'
-						})
-					}}>Sélectionner
-					</button>
-				</div>
-			</div>
-
-			<div className="game">
-				<img src={hsr} alt="Pacman"/>
-				<div className="game-content">
-					<h2>Honkai: Star Rail</h2>
-					<button onClick={() => {
-						handleRequest({
-							theme: 'hsr',
-							alias: 'hsr'
-						})
-					}}>Sélectionner
-					</button>
-				</div>
-			</div>
+			))}
 		</main>
 	)
 }

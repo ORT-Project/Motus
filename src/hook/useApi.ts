@@ -5,12 +5,19 @@ export default function useApi<T> (path: string) {
 	const [data, setData] = useState<T>()
 	const [error, setError] = useState<any>()
 	useEffect(() => {
-		axios.get<T>('http://localhost:8081' + path)
-			.then(response => {
-				setData(response.data)
-			}).catch((error) => {
-				setError(error)
-			})
+		const fetchData = async () => {
+			axios.get<T>('http://api.beltaria.fr/api/' + path)
+				.then(response => {
+					setData(response.data)
+				}).catch((error) => {
+					setError(error)
+				})
+		}
+
+		fetchData()
 	}, [])
-	return { data, error }
+	return {
+		data,
+		error
+	}
 }

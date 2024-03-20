@@ -8,6 +8,7 @@ export interface Word {
 export interface Theme {
 	id: number
 	name: string
-	alias: string
+	alias: JSON
+	image: string
 	words: Word[]
 }

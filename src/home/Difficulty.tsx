@@ -2,6 +2,8 @@ import React from 'react'
 import './styles/styles.css'
 import './styles/Difficulty.css'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom'
+import useApi from '../hook/useApi'
+import type { DifficultyType } from '../type'
 
 export default function Difficulty () {
 	const navigate = useNavigate()
@@ -9,6 +11,7 @@ export default function Difficulty () {
 	if (location.state.theme === undefined || location.state.theme === null) {
 		return <Navigate to="/"/> // Rediriger vers la page de base
 	}
+	const { data } = useApi<DifficultyType[]>('/difficulty')
 
 	interface FormData {
 		difficulty: string
@@ -16,77 +19,44 @@ export default function Difficulty () {
 		attempts: number
 		color: boolean
 		theme: string
-		alias: string
+		style: string
 	}
 
 	const handleRequest = (formData: FormData) => {
 		navigate('/motus/game', { state: formData })
 	}
 
-	return (
-		<div className="container">
-			<h1>Sélectionnez votre difficulté</h1>
-			<div className="difficulty">
-				<label htmlFor="easy">
-					<input type="radio" id="easy" name="difficulty" value="easy"/>
-					<img onClick={() => {
-						handleRequest({
-							difficulty: 'Facile',
-							tip: 1,
-							attempts: 10,
-							color: true,
-							theme: location.state.theme,
-							alias: location.state.alias
-						})
-					}} src="https://via.placeholder.com/100?text=Facile" alt="Facile"/>
-				</label>
-				<label htmlFor="medium">
-					<input type="radio" id="medium" name="difficulty" value="medium"/>
-					<img onClick={() => {
-						handleRequest({
-							difficulty: 'Moyen',
-							tip: 1,
-							attempts: 7,
-							color: true,
-							theme: location.state.theme,
-							alias: location.state.alias
-						})
-					}} src="https://via.placeholder.com/100?text=Moyen" alt="Moyen"/>
-				</label>
-				<label htmlFor="hard">
-					<input type="radio" id="hard" name="difficulty" value="hard"/>
-					<img onClick={() => {
-						handleRequest({
-							difficulty: 'Difficile',
-							tip: 1,
-							attempts: 5,
-							color: true,
-							theme: location.state.theme,
-							alias: location.state.alias
-						})
-					}} src="https://via.placeholder.com/100?text=Difficile" alt="Difficile"/>
-				</label>
-				<label htmlFor="impossible">
-					<input type="radio" id="hard" name="difficulty" value="impossible"/>
-					<img onClick={() => {
-						handleRequest({
-							difficulty: 'Impossible',
-							tip: 1,
-							attempts: 3,
-							color: false,
-							theme: location.state.theme,
-							alias: location.state.alias
-						})
-					}} src="https://via.placeholder.com/100?text=Impossible" alt="Impossible"/>
-				</label>
-			</div>
-			<div id="selected-difficulty"></div>
+	if (!data) {
+		return <div>Une erreur est survenue lors du chargement de l&apos;API.</div>
+	} else {
+		return (
+			<div className="container">
+				<h1>Sélectionnez votre difficulté</h1>
+				<div className="difficulty">
+					{data.map((difficulty, index) => (
+						<label htmlFor={difficulty.alias} key={index}>
+							<input type="radio" id={difficulty.alias} name="difficulty" value={difficulty.alias}/>
+							<img onClick={() => {
+								handleRequest({
+									difficulty: difficulty.name,
+									tip: difficulty.tips,
+									attempts: difficulty.attempts,
+									color: difficulty.color,
+									theme: location.state.theme,
+									style: location.state.style
+								})
+							}} src={'https://via.placeholder.com/100?text=' + difficulty.name} alt="Facile"/>
+						</label>
+					))}
+				</div>
+				<div id="selected-difficulty"></div>
 
-			<div className="background-shapes">
-				<div className="shape shape1"></div>
-				<div className="shape shape2"></div>
-				<div className="shape shape3"></div>
+				<div className="background-shapes">
+					<div className="shape shape1"></div>
+					<div className="shape shape2"></div>
+					<div className="shape shape3"></div>
+				</div>
 			</div>
-		</div>
-	)
+		)
+	}
 }

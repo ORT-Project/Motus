@@ -7,36 +7,6 @@
     width: 100%;
 }
 
-.input {
-    background-image: url('../../resources/images/retry-bg.png');
-    border-radius: 20px;
-    border: 3px solid #30363d;
-    height: 80px;
-    width: 90%;
-}
-
-.parent-items {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    padding: 30px 200px;
-}
-
-.container-elements {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-}
-
-.items {
-    border-radius: 20px;
-    background-color: rgba(70, 75, 77, 0.8);
-    margin: 20px;
-    padding: 20px;
-}
-
 h2, p {
     color: white;
     text-decoration: none;
@@ -104,6 +74,7 @@ main {
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
+    min-height: calc(100vh - 169px - 76px - 60px);
 }
 
 .game {
@@ -162,4 +133,48 @@ main {
 
 .game button:hover {
     background: #5f79e0;
+}
+
+nav {
+    background: #fff;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #4e54c8;
+}
+
+footer {
+    background: #4e54c8;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+header {
+    background: linear-gradient(to right, #4e54c8, #8f94fb);
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }

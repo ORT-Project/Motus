@@ -28,7 +28,7 @@ export default function Motus () {
 		navigate('/motus', {})
 	}
 
-	const theme: string = location.state.theme
+	const theme: string = location.state.style
 
 	useEffect(() => {
 		document.body.classList.add(theme) // Récupérer la classe envoyée

@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { type LocationDifficulty } from '../entities/LocationDifficulty'
-import { WordsUtils } from '../utils/WordsUtils'
 import useApi from '../hook/useApi'
-import type { Word } from '../type'
+import type { Theme, Word } from '../type'
 
 export type WordHistoryProps = {
 	answer: string
@@ -11,6 +10,7 @@ export type WordHistoryProps = {
 	inputValue: string
 	setInputValue: (answer: string) => void
 	locationDifficulty: LocationDifficulty
+	style: string
 }
 export default function InputAnswer ({
 	answer,
@@ -18,14 +18,13 @@ export default function InputAnswer ({
 	setHistoryInput,
 	inputValue,
 	setInputValue,
-	locationDifficulty
+	locationDifficulty,
+	style
 }: WordHistoryProps) {
 	const [textErrorInput, setTextErrorInput] = useState<string>('')
 	const nbInputStringLeft = answer.length - inputValue.length
-	const wordsUtils = new WordsUtils()
 	const [win, setWin] = useState(false)
-	const { data: wordsDataApi } = useApi<Word[]>('/words/')
-
+	const { data: wordsDataApi } = useApi<Theme[]>('theme/alias/' + style)
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value)
 	}
@@ -42,9 +41,20 @@ export default function InputAnswer ({
 	}
 
 	async function errorInput (wordInput: string): Promise<boolean> {
-		const wordExists = await wordsUtils.wordDontExist(wordInput.toLowerCase(), wordsDataApi)
+		const wordExists = await wordDontExist(wordInput.toLowerCase())
 		setTextErrorInput(wordExists ? '' : `Le mot ${wordInput} n'existe pas dans le dictionnaire. Veuillez réessayer.`)
 		return wordExists
+	}
+
+	async function wordDontExist (searchedWord: string): Promise<boolean> {
+		if (!wordsDataApi) {
+			throw new Error('No data')
+		}
+
+		const wordDoesExistApi = wordsDataApi[0].words.some((word: Word) => word.word === searchedWord.toLowerCase()) // si le mot existe dans l'api return true, sinon false
+		if (!wordDoesExistApi) return false // si le mot n'existe pas dans l'api ou dans la librairie return false
+
+		return true
 	}
 
 	const handlePressEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {

@@ -29,7 +29,6 @@ export default function Motus () {
 	}
 
 	const theme: string = location.state.style
-
 	useEffect(() => {
 		document.body.classList.add(theme) // Récupérer la classe envoyée
 
@@ -37,12 +36,13 @@ export default function Motus () {
 			document.body.classList.remove(theme)
 		}
 	}, [])
+	console.log(answer)
 
 	return (
 		<section>
 			<div className="column-left">
 				<DictionaryRuleProcessor
-					setAnswer={setAnswer} locationDifficulty={locationDifficulty} alias={location.state.alias}
+					setAnswer={setAnswer} locationDifficulty={locationDifficulty} style={location.state.style}
 				/>
 				<div>
 
@@ -58,6 +58,7 @@ export default function Motus () {
 						inputValue={inputValue}
 						setInputValue={setInputValue}
 						locationDifficulty={locationDifficulty}
+						style={location.state.style}
 					/>
 					<WordHistory
 						answer={answer}

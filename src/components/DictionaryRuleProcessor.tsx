@@ -7,16 +7,15 @@ import { type Theme } from '../type'
 export type DictionaryRuleProcessorPros = {
 	setAnswer: (answer: string) => void
 	locationDifficulty: LocationDifficulty
-	alias: string
+	style: string
 }
 
 export default function DictionaryRuleProcessor ({
 	setAnswer,
 	locationDifficulty,
-	alias
+	style
 }: DictionaryRuleProcessorPros) {
-	const urlParams = 'mc'
-	const { data } = useApi<Theme[]>('/themes/byAlias/' + urlParams)
+	const { data } = useApi<Theme[]>('theme/alias/' + style)
 	const minLetters = 1
 	const maxLetters = 10
 	const wordsUtils = new WordsUtils()

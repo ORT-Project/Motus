@@ -46,7 +46,7 @@ section {
     width: 80%;
 }
 
-.history {
+.content-game {
     background-color: var(--init-background-color);
     border-radius: var(--border-radius);
     border: 3px solid var(--init-border-color);
@@ -54,6 +54,10 @@ section {
     padding: 30px;
     min-height: 500px;
     width: 90%;
+    display: grid;
+}
+
+.history {
     display: flex;
     justify-content: center;
 }
@@ -91,8 +95,27 @@ section {
 .container-input {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
+
+.input-answer {
+    max-width: 190px;
+    height: 40px;
+    padding: 10px;
+    border: 3px solid var(--init-border-color);
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.input-answer:focus {
+    outline: none;
+}
+
+.error-input {
+    text-align: center;
+
+}
+
 
 .container-input input {
     color: red;
@@ -114,11 +137,11 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     background-color: #f8d7da;
     border-radius: var(--border-radius);
     border: 3px solid var(--init-border-color);
     height: 80px;
-    width: 90%;
 }
 
 .lose-game p {
@@ -133,11 +156,11 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     background-color: #d4edda;
     border-radius: var(--border-radius);
     border: 3px solid var(--init-border-color);
     height: 80px;
-    width: 90%;
 }
 
 .win-game p {
@@ -158,6 +181,10 @@ section {
     text-decoration: none;
     font-size: 16px;
     margin: 20px;
+}
+
+.number-left {
+    margin-left: 5px;
 }
 
 /*

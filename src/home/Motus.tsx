@@ -50,7 +50,7 @@ export default function Motus () {
 			</div>
 			<div className="column-middle">
 				<HealthTry locationDifficulty={locationDifficulty}/>
-				<div className="history">
+				<div className="content-game">
 					<InputAnswer
 						answer={answer}
 						setHistoryInput={setHistoryInput}
@@ -66,6 +66,7 @@ export default function Motus () {
 						inputValue={inputValue}
 						locationDifficulty={locationDifficulty}
 					/>
+
 				</div>
 				<div className="retry">
 					<button onClick={handleNavigate}>Page d&rsquo;accueil</button>

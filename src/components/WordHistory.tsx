@@ -35,7 +35,7 @@ export default function WordHistory ({
 
 	// render
 	return (
-		<div>
+		<div className="history">
 			<table>
 				<tbody>
 					{historyInput.map((answer, index) => (

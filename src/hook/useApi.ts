@@ -13,7 +13,6 @@ export default function useApi<T> (path: string) {
 					setError(error)
 				})
 		}
-
 		fetchData()
 	}, [])
 	return {

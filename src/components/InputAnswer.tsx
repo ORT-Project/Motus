@@ -83,22 +83,31 @@ export default function InputAnswer ({
 		)
 	} else if (locationDifficulty.getAttempts() !== 0) {
 		return (
-			<div className="container-input visible-game">
-				<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
-					placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}></input>
-				<button onClick={() => {
-					handleClick()
-				}}>Envoyer
-				</button>
-				<p>{nbInputStringLeft}</p>
-				<p>{textErrorInput}</p>
+			<div>
+				<div className="container-input visible-game">
+					<input type="text" value={inputValue} onChange={handleInputChange} maxLength={answer.length}
+						placeholder="Entrez votre réponse" onKeyDown={handlePressEnter}
+						className="input-answer"></input>
+					<button onClick={() => {
+						handleClick()
+					}}>Envoyer
+					</button>
+					<div className="number-left">
+						<p>{nbInputStringLeft}</p>
+					</div>
+
+				</div>
+				<div className="error-input">
+					<p>{textErrorInput}</p>
+				</div>
 			</div>
+
 		)
 	} else {
 		return (
 			<div className="lose-game">
-				<p>Vous avez <strong>perdu</strong> la partie, rejouer ? La réponse
-                    était <strong>{answer.toLowerCase()}</strong>.</p>
+				<p>Vous avez <strong>perdu</strong> la partie, rejouer ? <br/>
+                    La réponse était <strong>{answer.toLowerCase()}</strong>.</p>
 			</div>
 		)
 	}

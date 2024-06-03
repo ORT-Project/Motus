@@ -10,6 +10,7 @@ import Footer from '../components/App/Footer'
 export default function App () {
 	const navigate = useNavigate()
 	const { data } = useApi<Theme[]>('/theme')
+	console.log(data)
 
 	interface FormData {
 		theme: string

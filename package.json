@@ -1,7 +1,7 @@
 {
   "name": "motus",
   "version": "0.1.0",
-  "homepage": "https://ort-project.github.io/motus",
+  "homepage": "https://ort-project.github.io/Motus",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

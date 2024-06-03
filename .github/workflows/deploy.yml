@@ -16,10 +16,7 @@ jobs:
           npm install --force
           npm run build
 
-      - name: Install NodeJS version
-        run: actions/setup-node@v2
-        with:
-          node-version: "18"
+
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4

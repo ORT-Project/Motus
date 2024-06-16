@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Motus/static/css/main.d35ef138.css",
-    "main.js": "/Motus/static/js/main.bf0ad4c9.js",
-    "static/media/background.jpg": "/Motus/static/media/background.fcd56465040e9f7bfb86.jpg",
-    "static/media/background.png": "/Motus/static/media/background.4d2faf4d05045c3346a3.png",
-    "static/media/sparkle.png": "/Motus/static/media/sparkle.35056a0c902c9c3d39fe.png",
-    "index.html": "/Motus/index.html",
-    "main.d35ef138.css.map": "/Motus/static/css/main.d35ef138.css.map",
-    "main.bf0ad4c9.js.map": "/Motus/static/js/main.bf0ad4c9.js.map"
+    "main.css": "/motus/static/css/main.a616dd7f.css",
+    "main.js": "/motus/static/js/main.c152c905.js",
+    "static/media/background.jpg": "/motus/static/media/background.fcd56465040e9f7bfb86.jpg",
+    "static/media/background.png": "/motus/static/media/background.4d2faf4d05045c3346a3.png",
+    "static/media/sparkle.png": "/motus/static/media/sparkle.35056a0c902c9c3d39fe.png",
+    "index.html": "/motus/index.html",
+    "main.a616dd7f.css.map": "/motus/static/css/main.a616dd7f.css.map",
+    "main.c152c905.js.map": "/motus/static/js/main.c152c905.js.map"
   },
   "entrypoints": [
-    "static/css/main.d35ef138.css",
-    "static/js/main.bf0ad4c9.js"
+    "static/css/main.a616dd7f.css",
+    "static/js/main.c152c905.js"
   ]
 }

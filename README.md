@@ -1,25 +1,48 @@
+
 # Motus
 
-## Description
+Une application web développée en React TypeScript pour recréer le jeu "Motus", permettant aux utilisateurs de deviner des mots avec des indices.
 
-Il s'agit d'un projet développé sous ReactJS.
 
-## Installation
 
-```shell
-$ npm install --force
+## URL Publique
+
+Le projet est disponible via l'url : [Motus](https://motus.beltaria.fr/)
+ 
+## Auteurs
+
+- [@Neleoko](https://www.github.com/Neleoko)
+- [@BluedyAishela_](https://github.com/BluedyRimuru)
+
+
+## Installation du projet
+
+Cloner le projet.
+
+```bash
+  git clone git@github.com:ORT-Project/Motus.git
 ```
 
-## Fonctionnalités
+Aller dans le projet.
 
-## Commandes
-
-```shell
-$ npm run lint -- --fix
-$ npm start
+```bash
+  cd Motus
 ```
 
-## Développeurs
+Installer les dependences.
 
-- [@bluedyaishela](https://github.com/BluedyRimuru)
-- [@neleoko](https://github.com/Neleoko)
+```bash
+  npm install --force
+```
+
+Demarrer le server.
+
+```bash
+  npm start
+```
+
+Demarrer les tests unitaires.
+
+```bash
+  npm test
+```

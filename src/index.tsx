@@ -4,12 +4,12 @@ import App from './home/App'
 import Motus from './home/Motus'
 import Difficulty from './home/Difficulty'
 import {
-	createBrowserRouter,
+	createHashRouter,
 	RouterProvider
 } from 'react-router-dom'
 import './index.css'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
 	{
 		path: '/',
 		element: <App/>

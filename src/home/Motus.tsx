@@ -21,6 +21,7 @@ export default function Motus () {
 	const locationDifficulty = new LocationDifficulty(location)
 
 	const reloadPage = () => {
+		localStorage.setItem('style', JSON.stringify(location.state.style))
 		window.location.reload()
 	}
 
@@ -28,7 +29,7 @@ export default function Motus () {
 		navigate('/motus', {})
 	}
 
-	const theme: string = location.state.style
+	const theme: string = location.state.style ? location.state.style : JSON.parse(localStorage.getItem('style') ?? '{}')
 	useEffect(() => {
 		document.body.classList.add(theme) // Récupérer la classe envoyée
 
